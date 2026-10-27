@@ -1,0 +1,15 @@
+name: ecommerce
+mode: labelled
+path: data/raw/ecommerce.xlsx
+read:
+  sheet_name: E Comm
+columns:
+  customer_id: CustomerID
+  churn_label: Churn
+  churn_positive_value: 1
+  revenue: null
+drop: []            # decided after the leakage/EDA review (phase 3)
+costs:              # ASSUMED values (₹)
+  offer_cost: 200
+  customer_value: 3000
+  offer_success_rate: 0.3

@@ -3,8 +3,8 @@
 | Phase | Status | Notes |
 |---|---|---|
 | 0. Setup | ✅ done | venv (Python 3.12.6), pinned requirements, ruff + pytest config, folders, .gitignore, docs |
-| 1. Dataset registry | ⏳ next | |
-| 2. Schema + cleaning | | |
+| 1. Dataset registry | ✅ done | 4 YAML configs; `io.load_config / read_raw / apply_mapping`; clear errors with close-match hints; xlsx parsed once and cached as pickle; all 4 datasets load |
+| 2. Schema + cleaning | ⏳ next | |
 | 3. Leakage guard + EDA | | |
 | 4. Transactions mode | | |
 | 5. Modelling | | |

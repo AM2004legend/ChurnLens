@@ -1,0 +1,13 @@
+name: subscription
+mode: labelled
+path: data/raw/subscription.csv
+columns:
+  customer_id: CustomerID
+  churn_label: Churn
+  churn_positive_value: 1
+  revenue: null
+drop: []            # decided after the leakage/EDA review (phase 3)
+costs:              # ASSUMED values (₹)
+  offer_cost: 150
+  customer_value: 2000
+  offer_success_rate: 0.3

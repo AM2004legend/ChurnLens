@@ -1,0 +1,18 @@
+name: retail
+mode: transactions
+path: data/raw/retail.xlsx
+read:
+  sheet_name: all   # two yearly sheets, concatenated
+columns:
+  customer_id: Customer ID
+  date: InvoiceDate
+  amount: [Quantity, Price]   # amount = Quantity × Price
+  invoice: Invoice            # frequency = distinct invoices, not line items
+transactions:
+  inactivity_days: 90
+  lookback_days: 365
+drop: []
+costs:              # ASSUMED values (₹)
+  offer_cost: 300
+  customer_value: 4000
+  offer_success_rate: 0.3

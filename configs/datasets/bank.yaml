@@ -1,0 +1,13 @@
+name: bank
+mode: labelled
+path: data/raw/bank.csv
+columns:
+  customer_id: CustomerId
+  churn_label: Exited
+  churn_positive_value: 1
+  revenue: null
+drop: []            # decided after the leakage/EDA review (phase 3)
+costs:              # ASSUMED values (₹), not from the bank
+  offer_cost: 500
+  customer_value: 5000
+  offer_success_rate: 0.3
