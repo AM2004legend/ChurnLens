@@ -1,0 +1,25 @@
+{
+  "flags": [],
+  "single_feature_auc": {
+    "AccountAge": 0.6468,
+    "AverageViewingDuration": 0.61,
+    "TotalCharges": 0.5972,
+    "ContentDownloadsPerMonth": 0.596,
+    "ViewingHoursPerWeek": 0.5958,
+    "MonthlyCharges": 0.5747,
+    "SupportTicketsPerMonth": 0.5639,
+    "SubscriptionType": 0.5229,
+    "PaymentMethod": 0.5197,
+    "GenrePreference": 0.5178,
+    "UserRating": 0.5176,
+    "WatchlistSize": 0.5161,
+    "SubtitlesEnabled": 0.5068,
+    "ContentType": 0.5058,
+    "PaperlessBilling": 0.5034,
+    "Gender": 0.503,
+    "ParentalControl": 0.5029,
+    "DeviceRegistered": 0.502,
+    "MultiDeviceAccess": 0.5013
+  },
+  "dropped_in_config": []
+}

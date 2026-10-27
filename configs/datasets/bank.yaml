@@ -6,7 +6,7 @@ columns:
   churn_label: Exited
   churn_positive_value: 1
   revenue: null
-drop: []            # decided after the leakage/EDA review (phase 3)
+drop: [RowNumber, Surname]   # phase 3 review: RowNumber = id-like; Surname = personal name, no causal signal
 costs:              # ASSUMED values (₹), not from the bank
   offer_cost: 500
   customer_value: 5000

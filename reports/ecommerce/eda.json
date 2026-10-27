@@ -1,0 +1,375 @@
+{
+  "dataset": "ecommerce",
+  "rows": 4504,
+  "churn_rate": 0.1683,
+  "numeric_differences": [
+    {
+      "column": "Tenure",
+      "mean_churned": 3.317,
+      "mean_stayed": 11.512,
+      "median_churned": 1.0,
+      "median_stayed": 10.0,
+      "std_diff": -1.16
+    },
+    {
+      "column": "CashbackAmount",
+      "mean_churned": 159.654,
+      "mean_stayed": 180.973,
+      "median_churned": 149.51,
+      "median_stayed": 166.52,
+      "std_diff": -0.484
+    },
+    {
+      "column": "DaySinceLastOrder",
+      "mean_churned": 3.187,
+      "mean_stayed": 4.812,
+      "median_churned": 2.0,
+      "median_stayed": 4.0,
+      "std_diff": -0.462
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "mean_churned": 3.96,
+      "mean_stayed": 3.643,
+      "median_churned": 4.0,
+      "median_stayed": 4.0,
+      "std_diff": 0.312
+    },
+    {
+      "column": "SatisfactionScore",
+      "mean_churned": 3.41,
+      "mean_stayed": 2.998,
+      "median_churned": 3.0,
+      "median_stayed": 3.0,
+      "std_diff": 0.303
+    },
+    {
+      "column": "CityTier",
+      "mean_churned": 1.863,
+      "mean_stayed": 1.625,
+      "median_churned": 1.0,
+      "median_stayed": 1.0,
+      "std_diff": 0.254
+    },
+    {
+      "column": "WarehouseToHome",
+      "mean_churned": 17.161,
+      "mean_stayed": 15.444,
+      "median_churned": 15.0,
+      "median_stayed": 13.0,
+      "std_diff": 0.202
+    },
+    {
+      "column": "NumberOfAddress",
+      "mean_churned": 4.441,
+      "mean_stayed": 4.148,
+      "median_churned": 3.0,
+      "median_stayed": 3.0,
+      "std_diff": 0.111
+    },
+    {
+      "column": "OrderCount",
+      "mean_churned": 2.754,
+      "mean_stayed": 3.016,
+      "median_churned": 2.0,
+      "median_stayed": 2.0,
+      "std_diff": -0.094
+    },
+    {
+      "column": "HourSpendOnApp",
+      "mean_churned": 2.959,
+      "mean_stayed": 2.927,
+      "median_churned": 3.0,
+      "median_stayed": 3.0,
+      "std_diff": 0.045
+    },
+    {
+      "column": "OrderAmountHikeFromlastYear",
+      "mean_churned": 15.615,
+      "mean_stayed": 15.739,
+      "median_churned": 14.0,
+      "median_stayed": 15.0,
+      "std_diff": -0.033
+    },
+    {
+      "column": "CouponUsed",
+      "mean_churned": 1.721,
+      "mean_stayed": 1.76,
+      "median_churned": 1.0,
+      "median_stayed": 1.0,
+      "std_diff": -0.021
+    }
+  ],
+  "group_differences": [
+    {
+      "column": "NumberOfDeviceRegistered",
+      "value": "6",
+      "n": 133,
+      "churn_rate": 0.3759,
+      "lift": 2.234
+    },
+    {
+      "column": "Complain",
+      "value": "1",
+      "n": 1262,
+      "churn_rate": 0.317,
+      "lift": 1.883
+    },
+    {
+      "column": "PreferedOrderCat",
+      "value": "Grocery",
+      "n": 330,
+      "churn_rate": 0.0394,
+      "lift": 0.234
+    },
+    {
+      "column": "PreferedOrderCat",
+      "value": "Others",
+      "n": 205,
+      "churn_rate": 0.0537,
+      "lift": 0.319
+    },
+    {
+      "column": "PreferedOrderCat",
+      "value": "Mobile Phone",
+      "n": 1651,
+      "churn_rate": 0.275,
+      "lift": 1.634
+    },
+    {
+      "column": "MaritalStatus",
+      "value": "Single",
+      "n": 1427,
+      "churn_rate": 0.2663,
+      "lift": 1.582
+    },
+    {
+      "column": "PreferredPaymentMode",
+      "value": "Cash on Delivery",
+      "n": 403,
+      "churn_rate": 0.2531,
+      "lift": 1.504
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "value": "1",
+      "n": 194,
+      "churn_rate": 0.0876,
+      "lift": 0.521
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "value": "2",
+      "n": 216,
+      "churn_rate": 0.088,
+      "lift": 0.523
+    },
+    {
+      "column": "SatisfactionScore",
+      "value": "5",
+      "n": 880,
+      "churn_rate": 0.2432,
+      "lift": 1.445
+    },
+    {
+      "column": "PreferredPaymentMode",
+      "value": "E wallet",
+      "n": 511,
+      "churn_rate": 0.2348,
+      "lift": 1.395
+    },
+    {
+      "column": "PreferedOrderCat",
+      "value": "Laptop & Accessory",
+      "n": 1637,
+      "churn_rate": 0.1045,
+      "lift": 0.621
+    },
+    {
+      "column": "Complain",
+      "value": "0",
+      "n": 3242,
+      "churn_rate": 0.1104,
+      "lift": 0.656
+    },
+    {
+      "column": "SatisfactionScore",
+      "value": "1",
+      "n": 947,
+      "churn_rate": 0.1109,
+      "lift": 0.659
+    },
+    {
+      "column": "HourSpendOnApp",
+      "value": "Missing",
+      "n": 197,
+      "churn_rate": 0.2234,
+      "lift": 1.327
+    },
+    {
+      "column": "CityTier",
+      "value": "3",
+      "n": 1398,
+      "churn_rate": 0.2203,
+      "lift": 1.309
+    },
+    {
+      "column": "MaritalStatus",
+      "value": "Married",
+      "n": 2411,
+      "churn_rate": 0.1182,
+      "lift": 0.702
+    },
+    {
+      "column": "SatisfactionScore",
+      "value": "2",
+      "n": 452,
+      "churn_rate": 0.1239,
+      "lift": 0.736
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "value": "5",
+      "n": 716,
+      "churn_rate": 0.2123,
+      "lift": 1.261
+    },
+    {
+      "column": "PreferredLoginDevice",
+      "value": "Computer",
+      "n": 1308,
+      "churn_rate": 0.2018,
+      "lift": 1.199
+    },
+    {
+      "column": "PreferredPaymentMode",
+      "value": "Credit Card",
+      "n": 1413,
+      "churn_rate": 0.138,
+      "lift": 0.82
+    },
+    {
+      "column": "MaritalStatus",
+      "value": "Divorced",
+      "n": 666,
+      "churn_rate": 0.1396,
+      "lift": 0.83
+    },
+    {
+      "column": "CityTier",
+      "value": "1",
+      "n": 2907,
+      "churn_rate": 0.1417,
+      "lift": 0.842
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "value": "3",
+      "n": 1336,
+      "churn_rate": 0.1445,
+      "lift": 0.858
+    },
+    {
+      "column": "CityTier",
+      "value": "2",
+      "n": 199,
+      "churn_rate": 0.191,
+      "lift": 1.135
+    },
+    {
+      "column": "Gender",
+      "value": "Female",
+      "n": 1818,
+      "churn_rate": 0.1535,
+      "lift": 0.912
+    },
+    {
+      "column": "PreferredPaymentMode",
+      "value": "Debit Card",
+      "n": 1844,
+      "churn_rate": 0.1535,
+      "lift": 0.912
+    },
+    {
+      "column": "PreferredLoginDevice",
+      "value": "Mobile Phone",
+      "n": 3196,
+      "churn_rate": 0.1546,
+      "lift": 0.918
+    },
+    {
+      "column": "Gender",
+      "value": "Male",
+      "n": 2686,
+      "churn_rate": 0.1783,
+      "lift": 1.06
+    },
+    {
+      "column": "PreferedOrderCat",
+      "value": "Fashion",
+      "n": 681,
+      "churn_rate": 0.1601,
+      "lift": 0.951
+    },
+    {
+      "column": "HourSpendOnApp",
+      "value": "2.0",
+      "n": 1180,
+      "churn_rate": 0.161,
+      "lift": 0.957
+    },
+    {
+      "column": "SatisfactionScore",
+      "value": "3",
+      "n": 1336,
+      "churn_rate": 0.1751,
+      "lift": 1.041
+    },
+    {
+      "column": "PreferredPaymentMode",
+      "value": "UPI",
+      "n": 333,
+      "churn_rate": 0.1742,
+      "lift": 1.035
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "value": "4",
+      "n": 1909,
+      "churn_rate": 0.1713,
+      "lift": 1.018
+    },
+    {
+      "column": "HourSpendOnApp",
+      "value": "4.0",
+      "n": 945,
+      "churn_rate": 0.1704,
+      "lift": 1.012
+    },
+    {
+      "column": "SatisfactionScore",
+      "value": "4",
+      "n": 889,
+      "churn_rate": 0.1676,
+      "lift": 0.996
+    },
+    {
+      "column": "HourSpendOnApp",
+      "value": "3.0",
+      "n": 2149,
+      "churn_rate": 0.1689,
+      "lift": 1.004
+    }
+  ],
+  "findings": [
+    "Overall, 16.8% of customers in the training data churned.",
+    "Customers with NumberOfDeviceRegistered = 6 churn at 37.6% vs 16.8% overall (2.2\u00d7 more likely; n=133).",
+    "Churners have lower Tenure (median 1 vs 10 for stayers; large difference, d=-1.16).",
+    "Customers with Complain = 1 churn at 31.7% vs 16.8% overall (1.9\u00d7 more likely; n=1,262).",
+    "Churners have lower CashbackAmount (median 150 vs 167 for stayers; small difference, d=-0.48)."
+  ],
+  "figures": [
+    "reports/figures/ecommerce_eda_groups.png",
+    "reports/figures/ecommerce_eda_numeric.png"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "dataset": "bank",
+  "rows": 8000,
+  "churn_rate": 0.2037,
+  "numeric_differences": [
+    {
+      "column": "Age",
+      "mean_churned": 44.781,
+      "mean_stayed": 37.454,
+      "median_churned": 45.0,
+      "median_stayed": 36.0,
+      "std_diff": 0.733
+    },
+    {
+      "column": "Balance",
+      "mean_churned": 91337.278,
+      "mean_stayed": 72554.144,
+      "median_churned": 109252.725,
+      "median_stayed": 91715.195,
+      "std_diff": 0.311
+    },
+    {
+      "column": "NumOfProducts",
+      "mean_churned": 1.467,
+      "mean_stayed": 1.546,
+      "median_churned": 1.0,
+      "median_stayed": 2.0,
+      "std_diff": -0.117
+    },
+    {
+      "column": "CreditScore",
+      "mean_churned": 644.261,
+      "mean_stayed": 652.414,
+      "median_churned": 645.0,
+      "median_stayed": 654.0,
+      "std_diff": -0.083
+    },
+    {
+      "column": "EstimatedSalary",
+      "mean_churned": 102026.976,
+      "mean_stayed": 99143.253,
+      "median_churned": 104721.985,
+      "median_stayed": 98038.18,
+      "std_diff": 0.05
+    },
+    {
+      "column": "RowNumber",
+      "mean_churned": 4930.181,
+      "mean_stayed": 5005.851,
+      "median_churned": 4882.5,
+      "median_stayed": 5017.5,
+      "std_diff": -0.026
+    },
+    {
+      "column": "Tenure",
+      "mean_churned": 5.003,
+      "mean_stayed": 5.02,
+      "median_churned": 5.0,
+      "median_stayed": 5.0,
+      "std_diff": -0.006
+    }
+  ],
+  "group_differences": [
+    {
+      "column": "NumOfProducts",
+      "value": "3",
+      "n": 207,
+      "churn_rate": 0.8213,
+      "lift": 4.031
+    },
+    {
+      "column": "NumOfProducts",
+      "value": "2",
+      "n": 3672,
+      "churn_rate": 0.0738,
+      "lift": 0.362
+    },
+    {
+      "column": "Geography",
+      "value": "Germany",
+      "n": 2005,
+      "churn_rate": 0.3307,
+      "lift": 1.623
+    },
+    {
+      "column": "NumOfProducts",
+      "value": "1",
+      "n": 4071,
+      "churn_rate": 0.2798,
+      "lift": 1.373
+    },
+    {
+      "column": "IsActiveMember",
+      "value": "0",
+      "n": 3881,
+      "churn_rate": 0.2669,
+      "lift": 1.31
+    },
+    {
+      "column": "IsActiveMember",
+      "value": "1",
+      "n": 4119,
+      "churn_rate": 0.1442,
+      "lift": 0.708
+    },
+    {
+      "column": "Gender",
+      "value": "Female",
+      "n": 3613,
+      "churn_rate": 0.2508,
+      "lift": 1.231
+    },
+    {
+      "column": "Geography",
+      "value": "France",
+      "n": 3993,
+      "churn_rate": 0.159,
+      "lift": 0.781
+    },
+    {
+      "column": "Gender",
+      "value": "Male",
+      "n": 4387,
+      "churn_rate": 0.165,
+      "lift": 0.81
+    },
+    {
+      "column": "Geography",
+      "value": "Spain",
+      "n": 2002,
+      "churn_rate": 0.1658,
+      "lift": 0.814
+    },
+    {
+      "column": "HasCrCard",
+      "value": "0",
+      "n": 2330,
+      "churn_rate": 0.2129,
+      "lift": 1.045
+    },
+    {
+      "column": "HasCrCard",
+      "value": "1",
+      "n": 5670,
+      "churn_rate": 0.2,
+      "lift": 0.982
+    }
+  ],
+  "findings": [
+    "Overall, 20.4% of customers in the training data churned.",
+    "Customers with NumOfProducts = 3 churn at 82.1% vs 20.4% overall (4.0\u00d7 more likely; n=207).",
+    "Churners have higher Age (median 45 vs 36 for stayers; medium difference, d=+0.73).",
+    "Customers with Geography = Germany churn at 33.1% vs 20.4% overall (1.6\u00d7 more likely; n=2,005).",
+    "Churners have higher Balance (median 109,253 vs 91,715 for stayers; small difference, d=+0.31)."
+  ],
+  "figures": [
+    "reports/figures/bank_eda_groups.png",
+    "reports/figures/bank_eda_numeric.png"
+  ]
+}

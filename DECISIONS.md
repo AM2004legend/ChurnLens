@@ -46,3 +46,15 @@ Each entry: date — decision — why — alternatives considered.
 
 ## 2026-10-27 — Retail: deduplicate on the full raw row, not the mapped columns
 - **Why (bug found on real data):** after mapping to id/date/amount/invoice, two different products on the same invoice with the same line amount looked identical — 331,403 rows were wrongly dropped. Deduplicating on all raw columns drops only 26,480 true duplicates (mostly the overlapping Dec-2010 week in both sheets). Regression test added.
+
+## 2026-10-27 — Split before leakage guard and EDA
+- **Why:** looking at test-set labels (even in EDA) influences feature decisions, a subtle leak. Leakage checks and EDA use the 80% training split only.
+
+## 2026-10-27 — Leakage guard details
+- ID-like check skips continuous floats (EstimatedSalary is 99.99% unique but is not an ID); whole-number floats are still checked.
+- Categorical single-feature AUC uses **out-of-fold** target encoding (5 folds). In-sample encoding would give any unique text column (Surname) AUC ≈ 1.0 — a false alarm.
+
+## 2026-10-27 — Drops after the leakage/EDA review
+- **bank:** drop `RowNumber` (flagged id_like, 100% unique) and `Surname` (not flagged — 29% unique — but a personal name has no causal meaning and could act as a nationality/ethnicity proxy).
+- **ecommerce:** none. `Complain` kept: plausible pre-churn signal, single AUC 0.65 (far from leak territory). Caveat: we cannot verify when it was recorded.
+- **subscription:** none.

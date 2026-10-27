@@ -1,0 +1,365 @@
+{
+  "dataset": "subscription",
+  "rows": 195029,
+  "churn_rate": 0.1812,
+  "numeric_differences": [
+    {
+      "column": "AccountAge",
+      "mean_churned": 45.741,
+      "mean_stayed": 63.172,
+      "median_churned": 40.0,
+      "median_stayed": 65.0,
+      "std_diff": -0.528
+    },
+    {
+      "column": "AverageViewingDuration",
+      "mean_churned": 76.552,
+      "mean_stayed": 95.795,
+      "median_churned": 70.036,
+      "median_stayed": 97.503,
+      "std_diff": -0.39
+    },
+    {
+      "column": "ContentDownloadsPerMonth",
+      "mean_churned": 20.566,
+      "mean_stayed": 25.364,
+      "median_churned": 19.0,
+      "median_stayed": 26.0,
+      "std_diff": -0.338
+    },
+    {
+      "column": "ViewingHoursPerWeek",
+      "mean_churned": 17.469,
+      "mean_stayed": 21.199,
+      "median_churned": 16.135,
+      "median_stayed": 21.565,
+      "std_diff": -0.337
+    },
+    {
+      "column": "TotalCharges",
+      "mean_churned": 617.79,
+      "mean_stayed": 779.355,
+      "median_churned": 489.355,
+      "median_stayed": 683.6,
+      "std_diff": -0.316
+    },
+    {
+      "column": "MonthlyCharges",
+      "mean_churned": 13.409,
+      "mean_stayed": 12.288,
+      "median_churned": 13.863,
+      "median_stayed": 12.191,
+      "std_diff": 0.261
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "mean_churned": 5.027,
+      "mean_stayed": 4.388,
+      "median_churned": 5.0,
+      "median_stayed": 4.0,
+      "std_diff": 0.224
+    },
+    {
+      "column": "UserRating",
+      "mean_churned": 3.061,
+      "mean_stayed": 2.991,
+      "median_churned": 3.091,
+      "median_stayed": 2.982,
+      "std_diff": 0.061
+    },
+    {
+      "column": "WatchlistSize",
+      "mean_churned": 12.348,
+      "mean_stayed": 11.946,
+      "median_churned": 13.0,
+      "median_stayed": 12.0,
+      "std_diff": 0.056
+    }
+  ],
+  "group_differences": [
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "9",
+      "n": 19486,
+      "churn_rate": 0.237,
+      "lift": 1.308
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "0",
+      "n": 19387,
+      "churn_rate": 0.1329,
+      "lift": 0.733
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "8",
+      "n": 19498,
+      "churn_rate": 0.2255,
+      "lift": 1.244
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "1",
+      "n": 19407,
+      "churn_rate": 0.1446,
+      "lift": 0.798
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "2",
+      "n": 19591,
+      "churn_rate": 0.1513,
+      "lift": 0.835
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "7",
+      "n": 19740,
+      "churn_rate": 0.207,
+      "lift": 1.142
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "3",
+      "n": 19452,
+      "churn_rate": 0.1597,
+      "lift": 0.881
+    },
+    {
+      "column": "PaymentMethod",
+      "value": "Credit card",
+      "n": 48674,
+      "churn_rate": 0.1619,
+      "lift": 0.893
+    },
+    {
+      "column": "SubscriptionType",
+      "value": "Premium",
+      "n": 64615,
+      "churn_rate": 0.1633,
+      "lift": 0.901
+    },
+    {
+      "column": "GenrePreference",
+      "value": "Action",
+      "n": 39156,
+      "churn_rate": 0.1647,
+      "lift": 0.909
+    },
+    {
+      "column": "SubscriptionType",
+      "value": "Basic",
+      "n": 64886,
+      "churn_rate": 0.1961,
+      "lift": 1.082
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "6",
+      "n": 19353,
+      "churn_rate": 0.1958,
+      "lift": 1.081
+    },
+    {
+      "column": "GenrePreference",
+      "value": "Comedy",
+      "n": 39122,
+      "churn_rate": 0.1931,
+      "lift": 1.066
+    },
+    {
+      "column": "PaymentMethod",
+      "value": "Electronic check",
+      "n": 49030,
+      "churn_rate": 0.1924,
+      "lift": 1.062
+    },
+    {
+      "column": "GenrePreference",
+      "value": "Sci-Fi",
+      "n": 38636,
+      "churn_rate": 0.1914,
+      "lift": 1.056
+    },
+    {
+      "column": "PaymentMethod",
+      "value": "Mailed check",
+      "n": 48529,
+      "churn_rate": 0.1912,
+      "lift": 1.055
+    },
+    {
+      "column": "ContentType",
+      "value": "Both",
+      "n": 65429,
+      "churn_rate": 0.1878,
+      "lift": 1.036
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "4",
+      "n": 19808,
+      "churn_rate": 0.1754,
+      "lift": 0.968
+    },
+    {
+      "column": "GenrePreference",
+      "value": "Fantasy",
+      "n": 39173,
+      "churn_rate": 0.1764,
+      "lift": 0.974
+    },
+    {
+      "column": "SubtitlesEnabled",
+      "value": "No",
+      "n": 97296,
+      "churn_rate": 0.186,
+      "lift": 1.026
+    },
+    {
+      "column": "SubtitlesEnabled",
+      "value": "Yes",
+      "n": 97733,
+      "churn_rate": 0.1765,
+      "lift": 0.974
+    },
+    {
+      "column": "ContentType",
+      "value": "TV Shows",
+      "n": 64804,
+      "churn_rate": 0.1771,
+      "lift": 0.977
+    },
+    {
+      "column": "SubscriptionType",
+      "value": "Standard",
+      "n": 65528,
+      "churn_rate": 0.1843,
+      "lift": 1.017
+    },
+    {
+      "column": "ParentalControl",
+      "value": "No",
+      "n": 97139,
+      "churn_rate": 0.1841,
+      "lift": 1.016
+    },
+    {
+      "column": "ParentalControl",
+      "value": "Yes",
+      "n": 97890,
+      "churn_rate": 0.1784,
+      "lift": 0.984
+    },
+    {
+      "column": "Gender",
+      "value": "Male",
+      "n": 97410,
+      "churn_rate": 0.184,
+      "lift": 1.015
+    },
+    {
+      "column": "Gender",
+      "value": "Female",
+      "n": 97619,
+      "churn_rate": 0.1785,
+      "lift": 0.985
+    },
+    {
+      "column": "DeviceRegistered",
+      "value": "TV",
+      "n": 48453,
+      "churn_rate": 0.1785,
+      "lift": 0.985
+    },
+    {
+      "column": "ContentType",
+      "value": "Movies",
+      "n": 64796,
+      "churn_rate": 0.1787,
+      "lift": 0.986
+    },
+    {
+      "column": "DeviceRegistered",
+      "value": "Tablet",
+      "n": 48820,
+      "churn_rate": 0.1835,
+      "lift": 1.013
+    },
+    {
+      "column": "PaymentMethod",
+      "value": "Bank transfer",
+      "n": 48796,
+      "churn_rate": 0.1794,
+      "lift": 0.99
+    },
+    {
+      "column": "DeviceRegistered",
+      "value": "Mobile",
+      "n": 48724,
+      "churn_rate": 0.1828,
+      "lift": 1.009
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "value": "5",
+      "n": 19307,
+      "churn_rate": 0.1826,
+      "lift": 1.008
+    },
+    {
+      "column": "DeviceRegistered",
+      "value": "Computer",
+      "n": 49032,
+      "churn_rate": 0.18,
+      "lift": 0.993
+    },
+    {
+      "column": "MultiDeviceAccess",
+      "value": "Yes",
+      "n": 97353,
+      "churn_rate": 0.1805,
+      "lift": 0.996
+    },
+    {
+      "column": "MultiDeviceAccess",
+      "value": "No",
+      "n": 97676,
+      "churn_rate": 0.1819,
+      "lift": 1.004
+    },
+    {
+      "column": "GenrePreference",
+      "value": "Drama",
+      "n": 38942,
+      "churn_rate": 0.1806,
+      "lift": 0.997
+    },
+    {
+      "column": "PaperlessBilling",
+      "value": "No",
+      "n": 97355,
+      "churn_rate": 0.181,
+      "lift": 0.999
+    },
+    {
+      "column": "PaperlessBilling",
+      "value": "Yes",
+      "n": 97674,
+      "churn_rate": 0.1814,
+      "lift": 1.001
+    }
+  ],
+  "findings": [
+    "Overall, 18.1% of customers in the training data churned.",
+    "Customers with SupportTicketsPerMonth = 9 churn at 23.7% vs 18.1% overall (1.3\u00d7 more likely; n=19,486).",
+    "Churners have lower AccountAge (median 40 vs 65 for stayers; medium difference, d=-0.53).",
+    "Customers with PaymentMethod = Credit card churn at 16.2% vs 18.1% overall (1.1\u00d7 less likely; n=48,674).",
+    "Churners have lower AverageViewingDuration (median 70 vs 97.5 for stayers; small difference, d=-0.39)."
+  ],
+  "figures": [
+    "reports/figures/subscription_eda_groups.png",
+    "reports/figures/subscription_eda_numeric.png"
+  ]
+}

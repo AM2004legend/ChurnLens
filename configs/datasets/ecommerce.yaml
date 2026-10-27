@@ -8,7 +8,7 @@ columns:
   churn_label: Churn
   churn_positive_value: 1
   revenue: null
-drop: []            # decided after the leakage/EDA review (phase 3)
+drop: []            # phase 3 review: no leakage flags
 costs:              # ASSUMED values (₹)
   offer_cost: 200
   customer_value: 3000

@@ -1,0 +1,28 @@
+{
+  "flags": [
+    {
+      "column": "RowNumber",
+      "check": "id_like",
+      "value": 1.0,
+      "message": "100% unique values \u2014 looks like an identifier; a model can memorise it but it carries no general signal."
+    }
+  ],
+  "single_feature_auc": {
+    "Age": 0.7283,
+    "IsActiveMember": 0.5945,
+    "Geography": 0.5905,
+    "NumOfProducts": 0.5836,
+    "Balance": 0.5792,
+    "Gender": 0.5551,
+    "Surname": 0.5246,
+    "CreditScore": 0.521,
+    "EstimatedSalary": 0.5146,
+    "HasCrCard": 0.5082,
+    "RowNumber": 0.5075,
+    "Tenure": 0.5017
+  },
+  "dropped_in_config": [
+    "RowNumber",
+    "Surname"
+  ]
+}
