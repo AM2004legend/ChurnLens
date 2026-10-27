@@ -77,6 +77,7 @@ class Decision:
 @dataclass
 class Explained:
     importance: pd.Series
+    contributions: pd.DataFrame  # per-customer SHAP by business column (test rows, same order)
     customers: pd.DataFrame      # per-customer reasons (contains customer data: never committed)
     segmented: pd.DataFrame      # at-risk customers with segment + action
     summary: pd.DataFrame        # aggregate segment table (safe to commit)
@@ -180,7 +181,8 @@ def explain_and_segment(prep: Prepared, trained: Trained, decision: Decision,
     customers = explain.explain_customers(contrib, X_test, prep.test[ID].reset_index(drop=True),
                                           trained.test_proba, typical)
     segmented = segments.assign_segments(customers, decision.threshold, prep.cfg.segments)
-    result = Explained(importance, customers, segmented, segments.segment_summary(segmented))
+    result = Explained(importance, contrib, customers, segmented,
+                       segments.segment_summary(segmented))
     if save_figure:
         result.figure = explain.plot_global(importance, prep.cfg.name)
     return result

@@ -121,3 +121,10 @@ Each entry: date — decision — why — alternatives considered.
 ## 2026-10-27 — Results table generated from saved payloads only
 - `reports/results.md` is written by code from the same dicts saved as `reports/<name>/metrics.json` — no hand-typed numbers (CLAUDE.md rule).
 - Window sensitivity re-runs modelling + threshold in memory for N = 60/90/120 (no extra files). Finding: AUCs stay 0.72–0.77 but churn rate, chosen threshold and savings move a lot (₹1.70M → ₹1.27M) — the label definition is a business decision, not a detail.
+
+## 2026-10-27 — App design
+- **Two-step flow** (Load & check → review leakage → Train) so the user decides drops before any model is fitted, matching the CLAUDE.md rule "leakage guard runs before training; I decide what to drop".
+- **Synthetic demo datasets** (`churnlens/synthetic.py`): raw Kaggle/UCI files are gitignored, so a deployed app would otherwise have no data. Real datasets appear as demos only where the files exist locally.
+- **Uploads stay in memory**: `prepare(raw=df, save_figures=False)`, no model or report files written (PRD non-goal: storing uploaded data).
+- Threshold slider recomputes savings live on test scores; the *recommended* threshold is recomputed from train OOF scores when costs change, so it never uses test labels.
+- `AppTest` drives the real script in CI — catches broken tabs without a browser.

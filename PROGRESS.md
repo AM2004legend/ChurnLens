@@ -11,8 +11,8 @@
 | 6. Cost-based threshold | ✅ done | `threshold.py`; threshold chosen on train OOF scores, savings reported on test vs everyone / no one / 0.5 (`reports/<name>/threshold.json`, figure). Test savings (ASSUMED costs): bank ₹173.5k @0.60, ecommerce ₹97.1k @0.19, retail ₹1.372M @0.18, subscription ₹980k @0.59 — all beat 0.5 and both naive strategies |
 | 7. Explain + segments | ✅ done | `explain.py` (SHAP Tree/Linear, one-hot pieces summed back to business columns, top-3 risk-raising reasons in plain words) + `segments.py` (top driver → YAML rules → segment + action). Aggregates in `reports/<name>/explain.json`; per-customer reasons and target IDs written to gitignored CSVs. Top drivers: bank Age/NumOfProducts, ecommerce Tenure/Complain, retail recency/frequency, subscription AccountAge/viewing duration |
 | 8. Cross-industry run | ✅ done | `python -m churnlens.run --all` runs all 4 (~2 min) and writes `reports/results.md` (results table, model comparison, confusion matrices, SHAP drivers, retail 60/90/120-day sensitivity). Smoke tests run the full pipeline on 200-row synthetic labelled + transactions data |
-| 9. Streamlit app | ⏳ next | |
-| 10. Ship | | |
+| 9. Streamlit app | ✅ done | `streamlit run app/streamlit_app.py`. Synthetic demos (always available), local real demos (if raw files exist), or CSV upload with column mapping. Tabs: Overview, Leakage (user picks drops), EDA, Models, Threshold (live slider + savings), Explain (per customer), Segments (CSV download). Headless `AppTest` covers load → train → all tabs; checked manually in Chrome on bank (₹173,500 @0.60, matches CLI) |
+| 10. Ship | ⏳ next | |
 
 ## Known issues
 - Retail: churn rate shifts between train (64%) and test (49%) cutoffs — seasonality (test label window covers Sep–Dec Christmas trade). Probabilities will be miscalibrated on test; ranking metrics (ROC/PR-AUC) are less affected.
