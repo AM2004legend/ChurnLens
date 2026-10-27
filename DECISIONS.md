@@ -58,3 +58,24 @@ Each entry: date — decision — why — alternatives considered.
 - **bank:** drop `RowNumber` (flagged id_like, 100% unique) and `Surname` (not flagged — 29% unique — but a personal name has no causal meaning and could act as a nationality/ethnicity proxy).
 - **ecommerce:** none. `Complain` kept: plausible pre-churn signal, single AUC 0.65 (far from leak territory). Caveat: we cannot verify when it was recorded.
 - **subscription:** none.
+
+## 2026-10-27 — Transactions-mode definitions
+- **Day level:** a purchase at 18:00 on the cutoff day counts as history ("on or before c").
+- **Purchase = invoice** when an invoice column is mapped (lines summed), otherwise each row.
+- **Cutoffs:** c2 = last − N (test labels fully observed), c1 = c2 − N = last − 2N (PRD default). Train labels end exactly at c2, so every test label lies in the future of all training data.
+- **Guard:** building a snapshot whose label window runs past the end of the data raises an error — otherwise everyone would look churned simply because their future is unobserved.
+- **Trend** = purchases in last 90 days − purchases in previous 90 (simple, interpretable, testable). Alternative: ratio (undefined for 0/0).
+
+## 2026-10-27 — Same customer may appear in train and test snapshots (transactions mode)
+- **Why:** realistic — customers are re-scored over time. The split is by time, not by customer, so test labels are always in the future. Alternative: also hold out customers (group split), which measures new-customer generalisation and halves the data.
+
+## 2026-10-27 — Retail window sensitivity (60/90/120 days)
+| N | train cutoff | test cutoff | train churn | test churn |
+|---|---|---|---|---|
+| 60 | 2011-08-11 | 2011-10-10 | 65.6% | 56.0% |
+| 90 | 2011-06-12 | 2011-09-10 | 64.1% | 49.3% |
+| 120 | 2011-04-13 | 2011-08-11 | 57.6% | 46.5% |
+- The label depends on N, and train/test rates differ because the windows fall in different seasons. Default N = 90 kept.
+
+## 2026-10-27 — Date parsing uses `format="mixed"`
+- **Why:** with `errors="coerce"` alone, pandas infers one format from the first value and silently turns differently-formatted dates into NaT (found via the test fixture). Mixed parsing handles uploaded CSVs with inconsistent date strings.
