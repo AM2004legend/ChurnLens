@@ -1,0 +1,1679 @@
+{
+  "costs_ASSUMED": {
+    "offer_cost": 500.0,
+    "customer_value": 5000.0,
+    "offer_success_rate": 0.3
+  },
+  "chosen_on": "out-of-fold predictions on the training set",
+  "chosen_threshold": 0.6,
+  "breakeven_probability_if_calibrated": 0.3333,
+  "strategies_on_test": {
+    "target_no_one": {
+      "threshold": null,
+      "n_targeted": 0,
+      "churners_caught": 0,
+      "savings": 0.0
+    },
+    "target_everyone": {
+      "threshold": null,
+      "n_targeted": 2000,
+      "churners_caught": 407,
+      "savings": -389500.0
+    },
+    "threshold_0_5": {
+      "threshold": 0.5,
+      "n_targeted": 512,
+      "churners_caught": 285,
+      "savings": 171500.0
+    },
+    "chosen_threshold": {
+      "threshold": 0.6,
+      "n_targeted": 418,
+      "churners_caught": 255,
+      "savings": 173500.0
+    }
+  },
+  "curve_test": [
+    {
+      "threshold": 0.05,
+      "n_targeted": 1594,
+      "share_targeted": 0.797,
+      "churners_caught": 397,
+      "recall": 0.9754,
+      "precision": 0.2491,
+      "savings": -201500.0
+    },
+    {
+      "threshold": 0.06,
+      "n_targeted": 1522,
+      "share_targeted": 0.761,
+      "churners_caught": 391,
+      "recall": 0.9607,
+      "precision": 0.2569,
+      "savings": -174500.0
+    },
+    {
+      "threshold": 0.07,
+      "n_targeted": 1454,
+      "share_targeted": 0.727,
+      "churners_caught": 387,
+      "recall": 0.9509,
+      "precision": 0.2662,
+      "savings": -146500.0
+    },
+    {
+      "threshold": 0.08,
+      "n_targeted": 1386,
+      "share_targeted": 0.693,
+      "churners_caught": 384,
+      "recall": 0.9435,
+      "precision": 0.2771,
+      "savings": -117000.0
+    },
+    {
+      "threshold": 0.09,
+      "n_targeted": 1342,
+      "share_targeted": 0.671,
+      "churners_caught": 383,
+      "recall": 0.941,
+      "precision": 0.2854,
+      "savings": -96500.0
+    },
+    {
+      "threshold": 0.1,
+      "n_targeted": 1297,
+      "share_targeted": 0.6485,
+      "churners_caught": 381,
+      "recall": 0.9361,
+      "precision": 0.2938,
+      "savings": -77000.0
+    },
+    {
+      "threshold": 0.11,
+      "n_targeted": 1256,
+      "share_targeted": 0.628,
+      "churners_caught": 379,
+      "recall": 0.9312,
+      "precision": 0.3018,
+      "savings": -59500.0
+    },
+    {
+      "threshold": 0.12,
+      "n_targeted": 1222,
+      "share_targeted": 0.611,
+      "churners_caught": 377,
+      "recall": 0.9263,
+      "precision": 0.3085,
+      "savings": -45500.0
+    },
+    {
+      "threshold": 0.13,
+      "n_targeted": 1179,
+      "share_targeted": 0.5895,
+      "churners_caught": 374,
+      "recall": 0.9189,
+      "precision": 0.3172,
+      "savings": -28500.0
+    },
+    {
+      "threshold": 0.14,
+      "n_targeted": 1140,
+      "share_targeted": 0.57,
+      "churners_caught": 372,
+      "recall": 0.914,
+      "precision": 0.3263,
+      "savings": -12000.0
+    },
+    {
+      "threshold": 0.15,
+      "n_targeted": 1105,
+      "share_targeted": 0.5525,
+      "churners_caught": 369,
+      "recall": 0.9066,
+      "precision": 0.3339,
+      "savings": 1000.0
+    },
+    {
+      "threshold": 0.16,
+      "n_targeted": 1076,
+      "share_targeted": 0.538,
+      "churners_caught": 365,
+      "recall": 0.8968,
+      "precision": 0.3392,
+      "savings": 9500.0
+    },
+    {
+      "threshold": 0.17,
+      "n_targeted": 1051,
+      "share_targeted": 0.5255,
+      "churners_caught": 362,
+      "recall": 0.8894,
+      "precision": 0.3444,
+      "savings": 17500.0
+    },
+    {
+      "threshold": 0.18,
+      "n_targeted": 1024,
+      "share_targeted": 0.512,
+      "churners_caught": 360,
+      "recall": 0.8845,
+      "precision": 0.3516,
+      "savings": 28000.0
+    },
+    {
+      "threshold": 0.19,
+      "n_targeted": 997,
+      "share_targeted": 0.4985,
+      "churners_caught": 357,
+      "recall": 0.8771,
+      "precision": 0.3581,
+      "savings": 37000.0
+    },
+    {
+      "threshold": 0.2,
+      "n_targeted": 971,
+      "share_targeted": 0.4855,
+      "churners_caught": 353,
+      "recall": 0.8673,
+      "precision": 0.3635,
+      "savings": 44000.0
+    },
+    {
+      "threshold": 0.21,
+      "n_targeted": 944,
+      "share_targeted": 0.472,
+      "churners_caught": 351,
+      "recall": 0.8624,
+      "precision": 0.3718,
+      "savings": 54500.0
+    },
+    {
+      "threshold": 0.22,
+      "n_targeted": 917,
+      "share_targeted": 0.4585,
+      "churners_caught": 351,
+      "recall": 0.8624,
+      "precision": 0.3828,
+      "savings": 68000.0
+    },
+    {
+      "threshold": 0.23,
+      "n_targeted": 901,
+      "share_targeted": 0.4505,
+      "churners_caught": 349,
+      "recall": 0.8575,
+      "precision": 0.3873,
+      "savings": 73000.0
+    },
+    {
+      "threshold": 0.24,
+      "n_targeted": 883,
+      "share_targeted": 0.4415,
+      "churners_caught": 347,
+      "recall": 0.8526,
+      "precision": 0.393,
+      "savings": 79000.0
+    },
+    {
+      "threshold": 0.25,
+      "n_targeted": 858,
+      "share_targeted": 0.429,
+      "churners_caught": 342,
+      "recall": 0.8403,
+      "precision": 0.3986,
+      "savings": 84000.0
+    },
+    {
+      "threshold": 0.26,
+      "n_targeted": 841,
+      "share_targeted": 0.4205,
+      "churners_caught": 338,
+      "recall": 0.8305,
+      "precision": 0.4019,
+      "savings": 86500.0
+    },
+    {
+      "threshold": 0.27,
+      "n_targeted": 826,
+      "share_targeted": 0.413,
+      "churners_caught": 336,
+      "recall": 0.8256,
+      "precision": 0.4068,
+      "savings": 91000.0
+    },
+    {
+      "threshold": 0.28,
+      "n_targeted": 802,
+      "share_targeted": 0.401,
+      "churners_caught": 334,
+      "recall": 0.8206,
+      "precision": 0.4165,
+      "savings": 100000.0
+    },
+    {
+      "threshold": 0.29,
+      "n_targeted": 785,
+      "share_targeted": 0.3925,
+      "churners_caught": 333,
+      "recall": 0.8182,
+      "precision": 0.4242,
+      "savings": 107000.0
+    },
+    {
+      "threshold": 0.3,
+      "n_targeted": 769,
+      "share_targeted": 0.3845,
+      "churners_caught": 329,
+      "recall": 0.8084,
+      "precision": 0.4278,
+      "savings": 109000.0
+    },
+    {
+      "threshold": 0.31,
+      "n_targeted": 754,
+      "share_targeted": 0.377,
+      "churners_caught": 327,
+      "recall": 0.8034,
+      "precision": 0.4337,
+      "savings": 113500.0
+    },
+    {
+      "threshold": 0.32,
+      "n_targeted": 741,
+      "share_targeted": 0.3705,
+      "churners_caught": 325,
+      "recall": 0.7985,
+      "precision": 0.4386,
+      "savings": 117000.0
+    },
+    {
+      "threshold": 0.33,
+      "n_targeted": 729,
+      "share_targeted": 0.3645,
+      "churners_caught": 323,
+      "recall": 0.7936,
+      "precision": 0.4431,
+      "savings": 120000.0
+    },
+    {
+      "threshold": 0.34,
+      "n_targeted": 715,
+      "share_targeted": 0.3575,
+      "churners_caught": 321,
+      "recall": 0.7887,
+      "precision": 0.449,
+      "savings": 124000.0
+    },
+    {
+      "threshold": 0.35,
+      "n_targeted": 701,
+      "share_targeted": 0.3505,
+      "churners_caught": 319,
+      "recall": 0.7838,
+      "precision": 0.4551,
+      "savings": 128000.0
+    },
+    {
+      "threshold": 0.36,
+      "n_targeted": 682,
+      "share_targeted": 0.341,
+      "churners_caught": 315,
+      "recall": 0.774,
+      "precision": 0.4619,
+      "savings": 131500.0
+    },
+    {
+      "threshold": 0.37,
+      "n_targeted": 668,
+      "share_targeted": 0.334,
+      "churners_caught": 314,
+      "recall": 0.7715,
+      "precision": 0.4701,
+      "savings": 137000.0
+    },
+    {
+      "threshold": 0.38,
+      "n_targeted": 655,
+      "share_targeted": 0.3275,
+      "churners_caught": 312,
+      "recall": 0.7666,
+      "precision": 0.4763,
+      "savings": 140500.0
+    },
+    {
+      "threshold": 0.39,
+      "n_targeted": 644,
+      "share_targeted": 0.322,
+      "churners_caught": 312,
+      "recall": 0.7666,
+      "precision": 0.4845,
+      "savings": 146000.0
+    },
+    {
+      "threshold": 0.4,
+      "n_targeted": 626,
+      "share_targeted": 0.313,
+      "churners_caught": 308,
+      "recall": 0.7568,
+      "precision": 0.492,
+      "savings": 149000.0
+    },
+    {
+      "threshold": 0.41,
+      "n_targeted": 612,
+      "share_targeted": 0.306,
+      "churners_caught": 304,
+      "recall": 0.7469,
+      "precision": 0.4967,
+      "savings": 150000.0
+    },
+    {
+      "threshold": 0.42,
+      "n_targeted": 597,
+      "share_targeted": 0.2985,
+      "churners_caught": 301,
+      "recall": 0.7396,
+      "precision": 0.5042,
+      "savings": 153000.0
+    },
+    {
+      "threshold": 0.43,
+      "n_targeted": 584,
+      "share_targeted": 0.292,
+      "churners_caught": 299,
+      "recall": 0.7346,
+      "precision": 0.512,
+      "savings": 156500.0
+    },
+    {
+      "threshold": 0.44,
+      "n_targeted": 579,
+      "share_targeted": 0.2895,
+      "churners_caught": 298,
+      "recall": 0.7322,
+      "precision": 0.5147,
+      "savings": 157500.0
+    },
+    {
+      "threshold": 0.45,
+      "n_targeted": 569,
+      "share_targeted": 0.2845,
+      "churners_caught": 297,
+      "recall": 0.7297,
+      "precision": 0.522,
+      "savings": 161000.0
+    },
+    {
+      "threshold": 0.46,
+      "n_targeted": 560,
+      "share_targeted": 0.28,
+      "churners_caught": 296,
+      "recall": 0.7273,
+      "precision": 0.5286,
+      "savings": 164000.0
+    },
+    {
+      "threshold": 0.47,
+      "n_targeted": 550,
+      "share_targeted": 0.275,
+      "churners_caught": 294,
+      "recall": 0.7224,
+      "precision": 0.5345,
+      "savings": 166000.0
+    },
+    {
+      "threshold": 0.48,
+      "n_targeted": 537,
+      "share_targeted": 0.2685,
+      "churners_caught": 292,
+      "recall": 0.7174,
+      "precision": 0.5438,
+      "savings": 169500.0
+    },
+    {
+      "threshold": 0.49,
+      "n_targeted": 522,
+      "share_targeted": 0.261,
+      "churners_caught": 286,
+      "recall": 0.7027,
+      "precision": 0.5479,
+      "savings": 168000.0
+    },
+    {
+      "threshold": 0.5,
+      "n_targeted": 512,
+      "share_targeted": 0.256,
+      "churners_caught": 285,
+      "recall": 0.7002,
+      "precision": 0.5566,
+      "savings": 171500.0
+    },
+    {
+      "threshold": 0.51,
+      "n_targeted": 506,
+      "share_targeted": 0.253,
+      "churners_caught": 284,
+      "recall": 0.6978,
+      "precision": 0.5613,
+      "savings": 173000.0
+    },
+    {
+      "threshold": 0.52,
+      "n_targeted": 495,
+      "share_targeted": 0.2475,
+      "churners_caught": 281,
+      "recall": 0.6904,
+      "precision": 0.5677,
+      "savings": 174000.0
+    },
+    {
+      "threshold": 0.53,
+      "n_targeted": 485,
+      "share_targeted": 0.2425,
+      "churners_caught": 279,
+      "recall": 0.6855,
+      "precision": 0.5753,
+      "savings": 176000.0
+    },
+    {
+      "threshold": 0.54,
+      "n_targeted": 480,
+      "share_targeted": 0.24,
+      "churners_caught": 278,
+      "recall": 0.683,
+      "precision": 0.5792,
+      "savings": 177000.0
+    },
+    {
+      "threshold": 0.55,
+      "n_targeted": 474,
+      "share_targeted": 0.237,
+      "churners_caught": 275,
+      "recall": 0.6757,
+      "precision": 0.5802,
+      "savings": 175500.0
+    },
+    {
+      "threshold": 0.56,
+      "n_targeted": 462,
+      "share_targeted": 0.231,
+      "churners_caught": 272,
+      "recall": 0.6683,
+      "precision": 0.5887,
+      "savings": 177000.0
+    },
+    {
+      "threshold": 0.57,
+      "n_targeted": 449,
+      "share_targeted": 0.2245,
+      "churners_caught": 269,
+      "recall": 0.6609,
+      "precision": 0.5991,
+      "savings": 179000.0
+    },
+    {
+      "threshold": 0.58,
+      "n_targeted": 442,
+      "share_targeted": 0.221,
+      "churners_caught": 266,
+      "recall": 0.6536,
+      "precision": 0.6018,
+      "savings": 178000.0
+    },
+    {
+      "threshold": 0.59,
+      "n_targeted": 429,
+      "share_targeted": 0.2145,
+      "churners_caught": 262,
+      "recall": 0.6437,
+      "precision": 0.6107,
+      "savings": 178500.0
+    },
+    {
+      "threshold": 0.6,
+      "n_targeted": 418,
+      "share_targeted": 0.209,
+      "churners_caught": 255,
+      "recall": 0.6265,
+      "precision": 0.61,
+      "savings": 173500.0
+    },
+    {
+      "threshold": 0.61,
+      "n_targeted": 410,
+      "share_targeted": 0.205,
+      "churners_caught": 253,
+      "recall": 0.6216,
+      "precision": 0.6171,
+      "savings": 174500.0
+    },
+    {
+      "threshold": 0.62,
+      "n_targeted": 399,
+      "share_targeted": 0.1995,
+      "churners_caught": 250,
+      "recall": 0.6143,
+      "precision": 0.6266,
+      "savings": 175500.0
+    },
+    {
+      "threshold": 0.63,
+      "n_targeted": 387,
+      "share_targeted": 0.1935,
+      "churners_caught": 247,
+      "recall": 0.6069,
+      "precision": 0.6382,
+      "savings": 177000.0
+    },
+    {
+      "threshold": 0.64,
+      "n_targeted": 368,
+      "share_targeted": 0.184,
+      "churners_caught": 241,
+      "recall": 0.5921,
+      "precision": 0.6549,
+      "savings": 177500.0
+    },
+    {
+      "threshold": 0.65,
+      "n_targeted": 354,
+      "share_targeted": 0.177,
+      "churners_caught": 237,
+      "recall": 0.5823,
+      "precision": 0.6695,
+      "savings": 178500.0
+    },
+    {
+      "threshold": 0.66,
+      "n_targeted": 350,
+      "share_targeted": 0.175,
+      "churners_caught": 235,
+      "recall": 0.5774,
+      "precision": 0.6714,
+      "savings": 177500.0
+    },
+    {
+      "threshold": 0.67,
+      "n_targeted": 343,
+      "share_targeted": 0.1715,
+      "churners_caught": 231,
+      "recall": 0.5676,
+      "precision": 0.6735,
+      "savings": 175000.0
+    },
+    {
+      "threshold": 0.68,
+      "n_targeted": 334,
+      "share_targeted": 0.167,
+      "churners_caught": 228,
+      "recall": 0.5602,
+      "precision": 0.6826,
+      "savings": 175000.0
+    },
+    {
+      "threshold": 0.69,
+      "n_targeted": 329,
+      "share_targeted": 0.1645,
+      "churners_caught": 226,
+      "recall": 0.5553,
+      "precision": 0.6869,
+      "savings": 174500.0
+    },
+    {
+      "threshold": 0.7,
+      "n_targeted": 321,
+      "share_targeted": 0.1605,
+      "churners_caught": 224,
+      "recall": 0.5504,
+      "precision": 0.6978,
+      "savings": 175500.0
+    },
+    {
+      "threshold": 0.71,
+      "n_targeted": 308,
+      "share_targeted": 0.154,
+      "churners_caught": 221,
+      "recall": 0.543,
+      "precision": 0.7175,
+      "savings": 177500.0
+    },
+    {
+      "threshold": 0.72,
+      "n_targeted": 301,
+      "share_targeted": 0.1505,
+      "churners_caught": 219,
+      "recall": 0.5381,
+      "precision": 0.7276,
+      "savings": 178000.0
+    },
+    {
+      "threshold": 0.73,
+      "n_targeted": 288,
+      "share_targeted": 0.144,
+      "churners_caught": 210,
+      "recall": 0.516,
+      "precision": 0.7292,
+      "savings": 171000.0
+    },
+    {
+      "threshold": 0.74,
+      "n_targeted": 278,
+      "share_targeted": 0.139,
+      "churners_caught": 207,
+      "recall": 0.5086,
+      "precision": 0.7446,
+      "savings": 171500.0
+    },
+    {
+      "threshold": 0.75,
+      "n_targeted": 267,
+      "share_targeted": 0.1335,
+      "churners_caught": 200,
+      "recall": 0.4914,
+      "precision": 0.7491,
+      "savings": 166500.0
+    },
+    {
+      "threshold": 0.76,
+      "n_targeted": 264,
+      "share_targeted": 0.132,
+      "churners_caught": 197,
+      "recall": 0.484,
+      "precision": 0.7462,
+      "savings": 163500.0
+    },
+    {
+      "threshold": 0.77,
+      "n_targeted": 257,
+      "share_targeted": 0.1285,
+      "churners_caught": 195,
+      "recall": 0.4791,
+      "precision": 0.7588,
+      "savings": 164000.0
+    },
+    {
+      "threshold": 0.78,
+      "n_targeted": 246,
+      "share_targeted": 0.123,
+      "churners_caught": 191,
+      "recall": 0.4693,
+      "precision": 0.7764,
+      "savings": 163500.0
+    },
+    {
+      "threshold": 0.79,
+      "n_targeted": 236,
+      "share_targeted": 0.118,
+      "churners_caught": 189,
+      "recall": 0.4644,
+      "precision": 0.8008,
+      "savings": 165500.0
+    },
+    {
+      "threshold": 0.8,
+      "n_targeted": 228,
+      "share_targeted": 0.114,
+      "churners_caught": 185,
+      "recall": 0.4545,
+      "precision": 0.8114,
+      "savings": 163500.0
+    },
+    {
+      "threshold": 0.81,
+      "n_targeted": 216,
+      "share_targeted": 0.108,
+      "churners_caught": 178,
+      "recall": 0.4373,
+      "precision": 0.8241,
+      "savings": 159000.0
+    },
+    {
+      "threshold": 0.82,
+      "n_targeted": 207,
+      "share_targeted": 0.1035,
+      "churners_caught": 172,
+      "recall": 0.4226,
+      "precision": 0.8309,
+      "savings": 154500.0
+    },
+    {
+      "threshold": 0.83,
+      "n_targeted": 199,
+      "share_targeted": 0.0995,
+      "churners_caught": 167,
+      "recall": 0.4103,
+      "precision": 0.8392,
+      "savings": 151000.0
+    },
+    {
+      "threshold": 0.84,
+      "n_targeted": 191,
+      "share_targeted": 0.0955,
+      "churners_caught": 162,
+      "recall": 0.398,
+      "precision": 0.8482,
+      "savings": 147500.0
+    },
+    {
+      "threshold": 0.85,
+      "n_targeted": 176,
+      "share_targeted": 0.088,
+      "churners_caught": 151,
+      "recall": 0.371,
+      "precision": 0.858,
+      "savings": 138500.0
+    },
+    {
+      "threshold": 0.86,
+      "n_targeted": 166,
+      "share_targeted": 0.083,
+      "churners_caught": 143,
+      "recall": 0.3514,
+      "precision": 0.8614,
+      "savings": 131500.0
+    },
+    {
+      "threshold": 0.87,
+      "n_targeted": 153,
+      "share_targeted": 0.0765,
+      "churners_caught": 133,
+      "recall": 0.3268,
+      "precision": 0.8693,
+      "savings": 123000.0
+    },
+    {
+      "threshold": 0.88,
+      "n_targeted": 148,
+      "share_targeted": 0.074,
+      "churners_caught": 129,
+      "recall": 0.317,
+      "precision": 0.8716,
+      "savings": 119500.0
+    },
+    {
+      "threshold": 0.89,
+      "n_targeted": 141,
+      "share_targeted": 0.0705,
+      "churners_caught": 123,
+      "recall": 0.3022,
+      "precision": 0.8723,
+      "savings": 114000.0
+    },
+    {
+      "threshold": 0.9,
+      "n_targeted": 135,
+      "share_targeted": 0.0675,
+      "churners_caught": 120,
+      "recall": 0.2948,
+      "precision": 0.8889,
+      "savings": 112500.0
+    },
+    {
+      "threshold": 0.91,
+      "n_targeted": 130,
+      "share_targeted": 0.065,
+      "churners_caught": 116,
+      "recall": 0.285,
+      "precision": 0.8923,
+      "savings": 109000.0
+    },
+    {
+      "threshold": 0.92,
+      "n_targeted": 119,
+      "share_targeted": 0.0595,
+      "churners_caught": 108,
+      "recall": 0.2654,
+      "precision": 0.9076,
+      "savings": 102500.0
+    },
+    {
+      "threshold": 0.93,
+      "n_targeted": 102,
+      "share_targeted": 0.051,
+      "churners_caught": 94,
+      "recall": 0.231,
+      "precision": 0.9216,
+      "savings": 90000.0
+    },
+    {
+      "threshold": 0.94,
+      "n_targeted": 83,
+      "share_targeted": 0.0415,
+      "churners_caught": 78,
+      "recall": 0.1916,
+      "precision": 0.9398,
+      "savings": 75500.0
+    },
+    {
+      "threshold": 0.95,
+      "n_targeted": 75,
+      "share_targeted": 0.0375,
+      "churners_caught": 71,
+      "recall": 0.1744,
+      "precision": 0.9467,
+      "savings": 69000.0
+    }
+  ],
+  "curve_train_oof": [
+    {
+      "threshold": 0.05,
+      "n_targeted": 6095,
+      "share_targeted": 0.7619,
+      "churners_caught": 1580,
+      "recall": 0.9693,
+      "precision": 0.2592,
+      "savings": -677500.0
+    },
+    {
+      "threshold": 0.06,
+      "n_targeted": 5806,
+      "share_targeted": 0.7258,
+      "churners_caught": 1564,
+      "recall": 0.9595,
+      "precision": 0.2694,
+      "savings": -557000.0
+    },
+    {
+      "threshold": 0.07,
+      "n_targeted": 5533,
+      "share_targeted": 0.6916,
+      "churners_caught": 1548,
+      "recall": 0.9497,
+      "precision": 0.2798,
+      "savings": -444500.0
+    },
+    {
+      "threshold": 0.08,
+      "n_targeted": 5302,
+      "share_targeted": 0.6627,
+      "churners_caught": 1536,
+      "recall": 0.9423,
+      "precision": 0.2897,
+      "savings": -347000.0
+    },
+    {
+      "threshold": 0.09,
+      "n_targeted": 5102,
+      "share_targeted": 0.6378,
+      "churners_caught": 1525,
+      "recall": 0.9356,
+      "precision": 0.2989,
+      "savings": -263500.0
+    },
+    {
+      "threshold": 0.1,
+      "n_targeted": 4931,
+      "share_targeted": 0.6164,
+      "churners_caught": 1520,
+      "recall": 0.9325,
+      "precision": 0.3083,
+      "savings": -185500.0
+    },
+    {
+      "threshold": 0.11,
+      "n_targeted": 4754,
+      "share_targeted": 0.5942,
+      "churners_caught": 1506,
+      "recall": 0.9239,
+      "precision": 0.3168,
+      "savings": -118000.0
+    },
+    {
+      "threshold": 0.12,
+      "n_targeted": 4601,
+      "share_targeted": 0.5751,
+      "churners_caught": 1488,
+      "recall": 0.9129,
+      "precision": 0.3234,
+      "savings": -68500.0
+    },
+    {
+      "threshold": 0.13,
+      "n_targeted": 4452,
+      "share_targeted": 0.5565,
+      "churners_caught": 1478,
+      "recall": 0.9067,
+      "precision": 0.332,
+      "savings": -9000.0
+    },
+    {
+      "threshold": 0.14,
+      "n_targeted": 4305,
+      "share_targeted": 0.5381,
+      "churners_caught": 1469,
+      "recall": 0.9012,
+      "precision": 0.3412,
+      "savings": 51000.0
+    },
+    {
+      "threshold": 0.15,
+      "n_targeted": 4174,
+      "share_targeted": 0.5218,
+      "churners_caught": 1452,
+      "recall": 0.8908,
+      "precision": 0.3479,
+      "savings": 91000.0
+    },
+    {
+      "threshold": 0.16,
+      "n_targeted": 4073,
+      "share_targeted": 0.5091,
+      "churners_caught": 1445,
+      "recall": 0.8865,
+      "precision": 0.3548,
+      "savings": 131000.0
+    },
+    {
+      "threshold": 0.17,
+      "n_targeted": 3953,
+      "share_targeted": 0.4941,
+      "churners_caught": 1430,
+      "recall": 0.8773,
+      "precision": 0.3618,
+      "savings": 168500.0
+    },
+    {
+      "threshold": 0.18,
+      "n_targeted": 3842,
+      "share_targeted": 0.4803,
+      "churners_caught": 1422,
+      "recall": 0.8724,
+      "precision": 0.3701,
+      "savings": 212000.0
+    },
+    {
+      "threshold": 0.19,
+      "n_targeted": 3748,
+      "share_targeted": 0.4685,
+      "churners_caught": 1414,
+      "recall": 0.8675,
+      "precision": 0.3773,
+      "savings": 247000.0
+    },
+    {
+      "threshold": 0.2,
+      "n_targeted": 3650,
+      "share_targeted": 0.4562,
+      "churners_caught": 1400,
+      "recall": 0.8589,
+      "precision": 0.3836,
+      "savings": 275000.0
+    },
+    {
+      "threshold": 0.21,
+      "n_targeted": 3551,
+      "share_targeted": 0.4439,
+      "churners_caught": 1394,
+      "recall": 0.8552,
+      "precision": 0.3926,
+      "savings": 315500.0
+    },
+    {
+      "threshold": 0.22,
+      "n_targeted": 3482,
+      "share_targeted": 0.4353,
+      "churners_caught": 1386,
+      "recall": 0.8503,
+      "precision": 0.398,
+      "savings": 338000.0
+    },
+    {
+      "threshold": 0.23,
+      "n_targeted": 3405,
+      "share_targeted": 0.4256,
+      "churners_caught": 1380,
+      "recall": 0.8466,
+      "precision": 0.4053,
+      "savings": 367500.0
+    },
+    {
+      "threshold": 0.24,
+      "n_targeted": 3329,
+      "share_targeted": 0.4161,
+      "churners_caught": 1372,
+      "recall": 0.8417,
+      "precision": 0.4121,
+      "savings": 393500.0
+    },
+    {
+      "threshold": 0.25,
+      "n_targeted": 3251,
+      "share_targeted": 0.4064,
+      "churners_caught": 1356,
+      "recall": 0.8319,
+      "precision": 0.4171,
+      "savings": 408500.0
+    },
+    {
+      "threshold": 0.26,
+      "n_targeted": 3163,
+      "share_targeted": 0.3954,
+      "churners_caught": 1341,
+      "recall": 0.8227,
+      "precision": 0.424,
+      "savings": 430000.0
+    },
+    {
+      "threshold": 0.27,
+      "n_targeted": 3090,
+      "share_targeted": 0.3862,
+      "churners_caught": 1331,
+      "recall": 0.8166,
+      "precision": 0.4307,
+      "savings": 451500.0
+    },
+    {
+      "threshold": 0.28,
+      "n_targeted": 3024,
+      "share_targeted": 0.378,
+      "churners_caught": 1318,
+      "recall": 0.8086,
+      "precision": 0.4358,
+      "savings": 465000.0
+    },
+    {
+      "threshold": 0.29,
+      "n_targeted": 2964,
+      "share_targeted": 0.3705,
+      "churners_caught": 1310,
+      "recall": 0.8037,
+      "precision": 0.442,
+      "savings": 483000.0
+    },
+    {
+      "threshold": 0.3,
+      "n_targeted": 2900,
+      "share_targeted": 0.3625,
+      "churners_caught": 1301,
+      "recall": 0.7982,
+      "precision": 0.4486,
+      "savings": 501500.0
+    },
+    {
+      "threshold": 0.31,
+      "n_targeted": 2849,
+      "share_targeted": 0.3561,
+      "churners_caught": 1288,
+      "recall": 0.7902,
+      "precision": 0.4521,
+      "savings": 507500.0
+    },
+    {
+      "threshold": 0.32,
+      "n_targeted": 2782,
+      "share_targeted": 0.3478,
+      "churners_caught": 1276,
+      "recall": 0.7828,
+      "precision": 0.4587,
+      "savings": 523000.0
+    },
+    {
+      "threshold": 0.33,
+      "n_targeted": 2711,
+      "share_targeted": 0.3389,
+      "churners_caught": 1263,
+      "recall": 0.7748,
+      "precision": 0.4659,
+      "savings": 539000.0
+    },
+    {
+      "threshold": 0.34,
+      "n_targeted": 2658,
+      "share_targeted": 0.3322,
+      "churners_caught": 1257,
+      "recall": 0.7712,
+      "precision": 0.4729,
+      "savings": 556500.0
+    },
+    {
+      "threshold": 0.35,
+      "n_targeted": 2603,
+      "share_targeted": 0.3254,
+      "churners_caught": 1246,
+      "recall": 0.7644,
+      "precision": 0.4787,
+      "savings": 567500.0
+    },
+    {
+      "threshold": 0.36,
+      "n_targeted": 2554,
+      "share_targeted": 0.3192,
+      "churners_caught": 1239,
+      "recall": 0.7601,
+      "precision": 0.4851,
+      "savings": 581500.0
+    },
+    {
+      "threshold": 0.37,
+      "n_targeted": 2506,
+      "share_targeted": 0.3132,
+      "churners_caught": 1228,
+      "recall": 0.7534,
+      "precision": 0.49,
+      "savings": 589000.0
+    },
+    {
+      "threshold": 0.38,
+      "n_targeted": 2453,
+      "share_targeted": 0.3066,
+      "churners_caught": 1221,
+      "recall": 0.7491,
+      "precision": 0.4978,
+      "savings": 605000.0
+    },
+    {
+      "threshold": 0.39,
+      "n_targeted": 2417,
+      "share_targeted": 0.3021,
+      "churners_caught": 1210,
+      "recall": 0.7423,
+      "precision": 0.5006,
+      "savings": 606500.0
+    },
+    {
+      "threshold": 0.4,
+      "n_targeted": 2365,
+      "share_targeted": 0.2956,
+      "churners_caught": 1196,
+      "recall": 0.7337,
+      "precision": 0.5057,
+      "savings": 611500.0
+    },
+    {
+      "threshold": 0.41,
+      "n_targeted": 2321,
+      "share_targeted": 0.2901,
+      "churners_caught": 1186,
+      "recall": 0.7276,
+      "precision": 0.511,
+      "savings": 618500.0
+    },
+    {
+      "threshold": 0.42,
+      "n_targeted": 2266,
+      "share_targeted": 0.2833,
+      "churners_caught": 1175,
+      "recall": 0.7209,
+      "precision": 0.5185,
+      "savings": 629500.0
+    },
+    {
+      "threshold": 0.43,
+      "n_targeted": 2219,
+      "share_targeted": 0.2774,
+      "churners_caught": 1162,
+      "recall": 0.7129,
+      "precision": 0.5237,
+      "savings": 633500.0
+    },
+    {
+      "threshold": 0.44,
+      "n_targeted": 2178,
+      "share_targeted": 0.2722,
+      "churners_caught": 1153,
+      "recall": 0.7074,
+      "precision": 0.5294,
+      "savings": 640500.0
+    },
+    {
+      "threshold": 0.45,
+      "n_targeted": 2146,
+      "share_targeted": 0.2682,
+      "churners_caught": 1148,
+      "recall": 0.7043,
+      "precision": 0.5349,
+      "savings": 649000.0
+    },
+    {
+      "threshold": 0.46,
+      "n_targeted": 2097,
+      "share_targeted": 0.2621,
+      "churners_caught": 1133,
+      "recall": 0.6951,
+      "precision": 0.5403,
+      "savings": 651000.0
+    },
+    {
+      "threshold": 0.47,
+      "n_targeted": 2060,
+      "share_targeted": 0.2575,
+      "churners_caught": 1122,
+      "recall": 0.6883,
+      "precision": 0.5447,
+      "savings": 653000.0
+    },
+    {
+      "threshold": 0.48,
+      "n_targeted": 2028,
+      "share_targeted": 0.2535,
+      "churners_caught": 1118,
+      "recall": 0.6859,
+      "precision": 0.5513,
+      "savings": 663000.0
+    },
+    {
+      "threshold": 0.49,
+      "n_targeted": 1984,
+      "share_targeted": 0.248,
+      "churners_caught": 1108,
+      "recall": 0.6798,
+      "precision": 0.5585,
+      "savings": 670000.0
+    },
+    {
+      "threshold": 0.5,
+      "n_targeted": 1947,
+      "share_targeted": 0.2434,
+      "churners_caught": 1093,
+      "recall": 0.6706,
+      "precision": 0.5614,
+      "savings": 666000.0
+    },
+    {
+      "threshold": 0.51,
+      "n_targeted": 1911,
+      "share_targeted": 0.2389,
+      "churners_caught": 1081,
+      "recall": 0.6632,
+      "precision": 0.5657,
+      "savings": 666000.0
+    },
+    {
+      "threshold": 0.52,
+      "n_targeted": 1868,
+      "share_targeted": 0.2335,
+      "churners_caught": 1069,
+      "recall": 0.6558,
+      "precision": 0.5723,
+      "savings": 669500.0
+    },
+    {
+      "threshold": 0.53,
+      "n_targeted": 1833,
+      "share_targeted": 0.2291,
+      "churners_caught": 1057,
+      "recall": 0.6485,
+      "precision": 0.5767,
+      "savings": 669000.0
+    },
+    {
+      "threshold": 0.54,
+      "n_targeted": 1794,
+      "share_targeted": 0.2243,
+      "churners_caught": 1047,
+      "recall": 0.6423,
+      "precision": 0.5836,
+      "savings": 673500.0
+    },
+    {
+      "threshold": 0.55,
+      "n_targeted": 1757,
+      "share_targeted": 0.2196,
+      "churners_caught": 1037,
+      "recall": 0.6362,
+      "precision": 0.5902,
+      "savings": 677000.0
+    },
+    {
+      "threshold": 0.56,
+      "n_targeted": 1716,
+      "share_targeted": 0.2145,
+      "churners_caught": 1021,
+      "recall": 0.6264,
+      "precision": 0.595,
+      "savings": 673500.0
+    },
+    {
+      "threshold": 0.57,
+      "n_targeted": 1687,
+      "share_targeted": 0.2109,
+      "churners_caught": 1011,
+      "recall": 0.6202,
+      "precision": 0.5993,
+      "savings": 673000.0
+    },
+    {
+      "threshold": 0.58,
+      "n_targeted": 1657,
+      "share_targeted": 0.2071,
+      "churners_caught": 1005,
+      "recall": 0.6166,
+      "precision": 0.6065,
+      "savings": 679000.0
+    },
+    {
+      "threshold": 0.59,
+      "n_targeted": 1624,
+      "share_targeted": 0.203,
+      "churners_caught": 998,
+      "recall": 0.6123,
+      "precision": 0.6145,
+      "savings": 685000.0
+    },
+    {
+      "threshold": 0.6,
+      "n_targeted": 1594,
+      "share_targeted": 0.1993,
+      "churners_caught": 990,
+      "recall": 0.6074,
+      "precision": 0.6211,
+      "savings": 688000.0
+    },
+    {
+      "threshold": 0.61,
+      "n_targeted": 1556,
+      "share_targeted": 0.1945,
+      "churners_caught": 974,
+      "recall": 0.5975,
+      "precision": 0.626,
+      "savings": 683000.0
+    },
+    {
+      "threshold": 0.62,
+      "n_targeted": 1511,
+      "share_targeted": 0.1889,
+      "churners_caught": 953,
+      "recall": 0.5847,
+      "precision": 0.6307,
+      "savings": 674000.0
+    },
+    {
+      "threshold": 0.63,
+      "n_targeted": 1469,
+      "share_targeted": 0.1836,
+      "churners_caught": 938,
+      "recall": 0.5755,
+      "precision": 0.6385,
+      "savings": 672500.0
+    },
+    {
+      "threshold": 0.64,
+      "n_targeted": 1437,
+      "share_targeted": 0.1796,
+      "churners_caught": 929,
+      "recall": 0.5699,
+      "precision": 0.6465,
+      "savings": 675000.0
+    },
+    {
+      "threshold": 0.65,
+      "n_targeted": 1398,
+      "share_targeted": 0.1747,
+      "churners_caught": 916,
+      "recall": 0.562,
+      "precision": 0.6552,
+      "savings": 675000.0
+    },
+    {
+      "threshold": 0.66,
+      "n_targeted": 1362,
+      "share_targeted": 0.1703,
+      "churners_caught": 898,
+      "recall": 0.5509,
+      "precision": 0.6593,
+      "savings": 666000.0
+    },
+    {
+      "threshold": 0.67,
+      "n_targeted": 1326,
+      "share_targeted": 0.1658,
+      "churners_caught": 888,
+      "recall": 0.5448,
+      "precision": 0.6697,
+      "savings": 669000.0
+    },
+    {
+      "threshold": 0.68,
+      "n_targeted": 1282,
+      "share_targeted": 0.1603,
+      "churners_caught": 877,
+      "recall": 0.538,
+      "precision": 0.6841,
+      "savings": 674500.0
+    },
+    {
+      "threshold": 0.69,
+      "n_targeted": 1251,
+      "share_targeted": 0.1564,
+      "churners_caught": 862,
+      "recall": 0.5288,
+      "precision": 0.689,
+      "savings": 667500.0
+    },
+    {
+      "threshold": 0.7,
+      "n_targeted": 1215,
+      "share_targeted": 0.1519,
+      "churners_caught": 850,
+      "recall": 0.5215,
+      "precision": 0.6996,
+      "savings": 667500.0
+    },
+    {
+      "threshold": 0.71,
+      "n_targeted": 1184,
+      "share_targeted": 0.148,
+      "churners_caught": 837,
+      "recall": 0.5135,
+      "precision": 0.7069,
+      "savings": 663500.0
+    },
+    {
+      "threshold": 0.72,
+      "n_targeted": 1161,
+      "share_targeted": 0.1451,
+      "churners_caught": 830,
+      "recall": 0.5092,
+      "precision": 0.7149,
+      "savings": 664500.0
+    },
+    {
+      "threshold": 0.73,
+      "n_targeted": 1127,
+      "share_targeted": 0.1409,
+      "churners_caught": 815,
+      "recall": 0.5,
+      "precision": 0.7232,
+      "savings": 659000.0
+    },
+    {
+      "threshold": 0.74,
+      "n_targeted": 1100,
+      "share_targeted": 0.1375,
+      "churners_caught": 806,
+      "recall": 0.4945,
+      "precision": 0.7327,
+      "savings": 659000.0
+    },
+    {
+      "threshold": 0.75,
+      "n_targeted": 1065,
+      "share_targeted": 0.1331,
+      "churners_caught": 792,
+      "recall": 0.4859,
+      "precision": 0.7437,
+      "savings": 655500.0
+    },
+    {
+      "threshold": 0.76,
+      "n_targeted": 1035,
+      "share_targeted": 0.1294,
+      "churners_caught": 777,
+      "recall": 0.4767,
+      "precision": 0.7507,
+      "savings": 648000.0
+    },
+    {
+      "threshold": 0.77,
+      "n_targeted": 1001,
+      "share_targeted": 0.1251,
+      "churners_caught": 758,
+      "recall": 0.465,
+      "precision": 0.7572,
+      "savings": 636500.0
+    },
+    {
+      "threshold": 0.78,
+      "n_targeted": 974,
+      "share_targeted": 0.1217,
+      "churners_caught": 741,
+      "recall": 0.4546,
+      "precision": 0.7608,
+      "savings": 624500.0
+    },
+    {
+      "threshold": 0.79,
+      "n_targeted": 948,
+      "share_targeted": 0.1185,
+      "churners_caught": 726,
+      "recall": 0.4454,
+      "precision": 0.7658,
+      "savings": 615000.0
+    },
+    {
+      "threshold": 0.8,
+      "n_targeted": 917,
+      "share_targeted": 0.1146,
+      "churners_caught": 707,
+      "recall": 0.4337,
+      "precision": 0.771,
+      "savings": 602000.0
+    },
+    {
+      "threshold": 0.81,
+      "n_targeted": 876,
+      "share_targeted": 0.1095,
+      "churners_caught": 688,
+      "recall": 0.4221,
+      "precision": 0.7854,
+      "savings": 594000.0
+    },
+    {
+      "threshold": 0.82,
+      "n_targeted": 846,
+      "share_targeted": 0.1057,
+      "churners_caught": 670,
+      "recall": 0.411,
+      "precision": 0.792,
+      "savings": 582000.0
+    },
+    {
+      "threshold": 0.83,
+      "n_targeted": 813,
+      "share_targeted": 0.1016,
+      "churners_caught": 655,
+      "recall": 0.4018,
+      "precision": 0.8057,
+      "savings": 576000.0
+    },
+    {
+      "threshold": 0.84,
+      "n_targeted": 776,
+      "share_targeted": 0.097,
+      "churners_caught": 632,
+      "recall": 0.3877,
+      "precision": 0.8144,
+      "savings": 560000.0
+    },
+    {
+      "threshold": 0.85,
+      "n_targeted": 745,
+      "share_targeted": 0.0931,
+      "churners_caught": 615,
+      "recall": 0.3773,
+      "precision": 0.8255,
+      "savings": 550000.0
+    },
+    {
+      "threshold": 0.86,
+      "n_targeted": 703,
+      "share_targeted": 0.0879,
+      "churners_caught": 587,
+      "recall": 0.3601,
+      "precision": 0.835,
+      "savings": 529000.0
+    },
+    {
+      "threshold": 0.87,
+      "n_targeted": 677,
+      "share_targeted": 0.0846,
+      "churners_caught": 568,
+      "recall": 0.3485,
+      "precision": 0.839,
+      "savings": 513500.0
+    },
+    {
+      "threshold": 0.88,
+      "n_targeted": 641,
+      "share_targeted": 0.0801,
+      "churners_caught": 542,
+      "recall": 0.3325,
+      "precision": 0.8456,
+      "savings": 492500.0
+    },
+    {
+      "threshold": 0.89,
+      "n_targeted": 612,
+      "share_targeted": 0.0765,
+      "churners_caught": 524,
+      "recall": 0.3215,
+      "precision": 0.8562,
+      "savings": 480000.0
+    },
+    {
+      "threshold": 0.9,
+      "n_targeted": 579,
+      "share_targeted": 0.0724,
+      "churners_caught": 502,
+      "recall": 0.308,
+      "precision": 0.867,
+      "savings": 463500.0
+    },
+    {
+      "threshold": 0.91,
+      "n_targeted": 547,
+      "share_targeted": 0.0684,
+      "churners_caught": 480,
+      "recall": 0.2945,
+      "precision": 0.8775,
+      "savings": 446500.0
+    },
+    {
+      "threshold": 0.92,
+      "n_targeted": 500,
+      "share_targeted": 0.0625,
+      "churners_caught": 448,
+      "recall": 0.2748,
+      "precision": 0.896,
+      "savings": 422000.0
+    },
+    {
+      "threshold": 0.93,
+      "n_targeted": 452,
+      "share_targeted": 0.0565,
+      "churners_caught": 409,
+      "recall": 0.2509,
+      "precision": 0.9049,
+      "savings": 387500.0
+    },
+    {
+      "threshold": 0.94,
+      "n_targeted": 398,
+      "share_targeted": 0.0498,
+      "churners_caught": 366,
+      "recall": 0.2245,
+      "precision": 0.9196,
+      "savings": 350000.0
+    },
+    {
+      "threshold": 0.95,
+      "n_targeted": 338,
+      "share_targeted": 0.0423,
+      "churners_caught": 314,
+      "recall": 0.1926,
+      "precision": 0.929,
+      "savings": 302000.0
+    }
+  ],
+  "figure": "reports/figures/bank_threshold.png"
+}

@@ -96,3 +96,12 @@ Each entry: date — decision — why — alternatives considered.
 
 ## 2026-10-27 — Findings worth noting
 - LightGBM clearly beats LogReg on bank (PR-AUC 0.70 vs 0.47: non-linear effects like NumOfProducts = 3–4) and ecommerce. On retail RFM and subscription, LogReg is as good or slightly better — few, mostly monotonic features leave nothing for trees to add.
+
+## 2026-10-27 — Threshold chosen on out-of-fold training scores
+- **Why:** choosing it on the test set would make the reported savings optimistic (we'd be tuning on the exam). OOF scores come from models that never saw those rows, so they behave like unseen data.
+- Grid 0.05–0.95 step 0.01; ties → higher threshold (same money, fewer offers).
+- **Break-even reference:** with calibrated probabilities, target when p > c/(s·v) (bank: 500/(0.3×5000) = 0.33). Our chosen thresholds differ (bank 0.60) because class weighting inflates scores — one reason to pick empirically. Calibration plots are a stretch item.
+- Customer value is a single assumed number per dataset; `expected_savings` accepts per-customer values for when a trustworthy revenue column exists.
+
+## 2026-10-27 — Retail: "target everyone" is profitable
+- With 49% churn on test and an offer costing ₹300 vs ₹1,200 expected recovery per saved churner, mass targeting pays (₹1.257M). The model still adds value: ₹1.372M while sending 551 fewer offers. Worth stating honestly — when churn is very common and offers are cheap, the model's job is pruning, not finding.

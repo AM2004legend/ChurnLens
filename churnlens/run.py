@@ -18,7 +18,17 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from churnlens import config, eda, features, io, leakage, models, schema, transactions
+from churnlens import (
+    config,
+    eda,
+    features,
+    io,
+    leakage,
+    models,
+    schema,
+    threshold,
+    transactions,
+)
 from churnlens.io import ID, TARGET, DatasetConfig
 from churnlens.schema import CATEGORICAL, NUMERIC
 from churnlens.utils import md_table, write_json
@@ -46,6 +56,19 @@ class Trained:
     model: Any
     test_proba: np.ndarray
     test_metrics: dict[str, dict[str, Any]] = field(default_factory=dict)
+
+
+@dataclass
+class Decision:
+    """The business answer: which threshold, and what it is worth vs the alternatives."""
+
+    threshold: float
+    breakeven_probability: float
+    curve_train_oof: pd.DataFrame
+    curve_test: pd.DataFrame
+    strategies_test: dict[str, dict[str, Any]]
+    test_metrics_at_threshold: dict[str, Any]
+    figure: str | None = None
 
 
 def prepare(cfg: DatasetConfig, raw: pd.DataFrame | None = None,
@@ -110,7 +133,29 @@ def train_and_evaluate(prep: Prepared, drop: list[str] | None = None) -> Trained
                    test_metrics)
 
 
-def save_reports(prep: Prepared, trained: Trained) -> dict[str, Any]:
+def decide_threshold(prep: Prepared, trained: Trained, save_figure: bool = True) -> Decision:
+    """Pick the threshold on out-of-fold TRAIN scores (never the test set), then report what
+    that choice would have earned on the test set."""
+    costs = prep.cfg.costs
+    y_train = prep.train[TARGET].to_numpy()
+    y_test = prep.test[TARGET].to_numpy()
+    curve_oof = threshold.savings_curve(y_train, trained.oof[trained.best], costs)
+    chosen = threshold.choose_threshold(curve_oof)
+    curve_test = threshold.savings_curve(y_test, trained.test_proba, costs)
+    decision = Decision(
+        threshold=chosen,
+        breakeven_probability=round(threshold.breakeven_probability(costs), 4),
+        curve_train_oof=curve_oof,
+        curve_test=curve_test,
+        strategies_test=threshold.compare_strategies(y_test, trained.test_proba, costs, chosen),
+        test_metrics_at_threshold=models.evaluate(y_test, trained.test_proba, chosen),
+    )
+    if save_figure:
+        decision.figure = threshold.plot_curve(curve_test, chosen, prep.cfg.name, "test set")
+    return decision
+
+
+def save_reports(prep: Prepared, trained: Trained, decision: Decision) -> dict[str, Any]:
     name = prep.cfg.name
     out_dir = config.REPORTS_DIR / name
     leakage.save_report(prep.leakage, name, prep.cfg.drop, bool(prep.cfg.group_by))
@@ -127,8 +172,21 @@ def save_reports(prep: Prepared, trained: Trained) -> dict[str, Any]:
         "selection_metric": models.SELECTION_METRIC,
         "best_model": trained.best,
         "test_at_0_5": trained.test_metrics,
+        "chosen_threshold": decision.threshold,
+        "test_at_chosen_threshold": decision.test_metrics_at_threshold,
+        "strategies_on_test": decision.strategies_test,
     }
     write_json(out_dir / "metrics.json", payload)
+    write_json(out_dir / "threshold.json", {
+        "costs_ASSUMED": vars(prep.cfg.costs),
+        "chosen_on": "out-of-fold predictions on the training set",
+        "chosen_threshold": decision.threshold,
+        "breakeven_probability_if_calibrated": decision.breakeven_probability,
+        "strategies_on_test": decision.strategies_test,
+        "curve_test": decision.curve_test.to_dict(orient="records"),
+        "curve_train_oof": decision.curve_train_oof.to_dict(orient="records"),
+        "figure": decision.figure,
+    })
     return payload
 
 
@@ -141,7 +199,8 @@ def run_dataset(name: str, save_figures: bool = True) -> dict[str, Any]:
         print(f"[{name}] WARNING leakage flags not dropped in config: {undropped}")
     trained = train_and_evaluate(prep)
     models.save_model(trained.model, name, trained.best)
-    payload = save_reports(prep, trained)
+    decision = decide_threshold(prep, trained, save_figure=save_figures)
+    payload = save_reports(prep, trained, decision)
     payload["seconds"] = round(time.time() - t0, 1)
     return payload
 
@@ -156,6 +215,11 @@ def _print_summary(p: dict[str, Any]) -> None:
     rows = [{"model": m, **{k: v for k, v in r.items() if k != "confusion_matrix"},
              **r["confusion_matrix"]} for m, r in p["test_at_0_5"].items()]
     print("TEST @0.5:\n" + md_table(pd.DataFrame(rows)))
+    m = p["test_at_chosen_threshold"]
+    print(f"chosen threshold (from train OOF): {p['chosen_threshold']} -> test precision "
+          f"{m['precision']}, recall {m['recall']}, F1 {m['f1']}, cm {m['confusion_matrix']}")
+    strat = pd.DataFrame(p["strategies_on_test"]).T.reset_index(names="strategy")
+    print("Savings on test (ASSUMED costs):\n" + md_table(strat))
 
 
 def main(argv: list[str] | None = None) -> None:

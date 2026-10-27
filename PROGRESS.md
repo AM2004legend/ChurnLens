@@ -8,8 +8,8 @@
 | 3. Leakage guard + EDA | ✅ done | Stratified 80/20 split first; leakage + EDA on train only. Reports: `reports/<name>/leakage.md`, `eda.md`, figures in `reports/figures/`. Max single-feature AUC 0.80 — no leaks beyond bank RowNumber |
 | 4. Transactions mode | ⏳ next | |
 | 5. Modelling | ✅ done | `models.py` + `run.py` (`python -m churnlens.run --dataset X / --all`). LogReg vs LightGBM, 5-fold stratified (grouped where configured) CV on train, best by CV PR-AUC, test metrics @0.5 in `reports/<name>/metrics.json`. Best test ROC-AUC / PR-AUC: bank LightGBM 0.856/0.700, ecommerce LightGBM 0.943/0.830, retail LogReg 0.752/0.700, subscription LogReg 0.755/0.409 |
-| 6. Cost-based threshold | ⏳ next | |
-| 7. Explain + segments | | |
+| 6. Cost-based threshold | ✅ done | `threshold.py`; threshold chosen on train OOF scores, savings reported on test vs everyone / no one / 0.5 (`reports/<name>/threshold.json`, figure). Test savings (ASSUMED costs): bank ₹173.5k @0.60, ecommerce ₹97.1k @0.19, retail ₹1.372M @0.18, subscription ₹980k @0.59 — all beat 0.5 and both naive strategies |
+| 7. Explain + segments | ⏳ next | |
 | 8. Cross-industry run | | |
 | 9. Streamlit app | | |
 | 10. Ship | | |

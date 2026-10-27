@@ -100,5 +100,49 @@
         "tp": 6100
       }
     }
+  },
+  "chosen_threshold": 0.59,
+  "test_at_chosen_threshold": {
+    "n": 48758,
+    "churn_rate": 0.1812,
+    "threshold": 0.59,
+    "precision": 0.3738,
+    "recall": 0.5581,
+    "f1": 0.4478,
+    "roc_auc": 0.7545,
+    "pr_auc": 0.4087,
+    "share_targeted": 0.2706,
+    "confusion_matrix": {
+      "tn": 31660,
+      "fp": 8261,
+      "fn": 3905,
+      "tp": 4932
+    }
+  },
+  "strategies_on_test": {
+    "target_no_one": {
+      "threshold": null,
+      "n_targeted": 0,
+      "churners_caught": 0,
+      "savings": 0.0
+    },
+    "target_everyone": {
+      "threshold": null,
+      "n_targeted": 48758,
+      "churners_caught": 8837,
+      "savings": -2011500.0
+    },
+    "threshold_0_5": {
+      "threshold": 0.5,
+      "n_targeted": 19158,
+      "churners_caught": 6184,
+      "savings": 836700.0
+    },
+    "chosen_threshold": {
+      "threshold": 0.59,
+      "n_targeted": 13193,
+      "churners_caught": 4932,
+      "savings": 980250.0
+    }
   }
 }
