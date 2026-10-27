@@ -109,6 +109,14 @@ def test_transactions_mapping_multiplies_amount_columns() -> None:
     assert list(out.columns) == ["customer_id", "date", "amount", "invoice"]
 
 
+def test_transactions_mapping_keeps_raw_columns_for_dedup() -> None:
+    df = pd.DataFrame({"Cust": [1], "When": ["2024-01-01"], "Amt": [5.0], "Sku": ["X"]})
+    raw = {"name": "tx", "mode": "transactions", "path": "x.csv",
+           "columns": {"customer_id": "Cust", "date": "When", "amount": "Amt"}}
+    out = io.apply_mapping(df, io.parse_config(raw))
+    assert "raw_Sku" in out.columns
+
+
 def test_read_raw_csv_roundtrip(tmp_path: Path, toy_df: pd.DataFrame) -> None:
     path = tmp_path / "toy.csv"
     toy_df.to_csv(path, index=False)

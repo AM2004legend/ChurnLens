@@ -1,0 +1,137 @@
+{
+  "cleaning": {
+    "rows_in": 5630,
+    "category_maps_applied": [
+      "PreferedOrderCat",
+      "PreferredLoginDevice",
+      "PreferredPaymentMode"
+    ],
+    "dropped_missing_id_or_label": 0,
+    "dropped_duplicate_rows": 0,
+    "dropped_duplicate_ids": 0,
+    "rows_out": 5630,
+    "churn_rate": 0.1684
+  },
+  "missing": [
+    {
+      "column": "DaySinceLastOrder",
+      "type": "numeric",
+      "n_missing": 307,
+      "pct_missing": 5.45
+    },
+    {
+      "column": "OrderAmountHikeFromlastYear",
+      "type": "numeric",
+      "n_missing": 265,
+      "pct_missing": 4.71
+    },
+    {
+      "column": "Tenure",
+      "type": "numeric",
+      "n_missing": 264,
+      "pct_missing": 4.69
+    },
+    {
+      "column": "OrderCount",
+      "type": "numeric",
+      "n_missing": 258,
+      "pct_missing": 4.58
+    },
+    {
+      "column": "CouponUsed",
+      "type": "numeric",
+      "n_missing": 256,
+      "pct_missing": 4.55
+    },
+    {
+      "column": "HourSpendOnApp",
+      "type": "numeric",
+      "n_missing": 255,
+      "pct_missing": 4.53
+    },
+    {
+      "column": "WarehouseToHome",
+      "type": "numeric",
+      "n_missing": 251,
+      "pct_missing": 4.46
+    },
+    {
+      "column": "CashbackAmount",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "CityTier",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Complain",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Gender",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "MaritalStatus",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "NumberOfAddress",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "NumberOfDeviceRegistered",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "PreferedOrderCat",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "PreferredLoginDevice",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "PreferredPaymentMode",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "SatisfactionScore",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "churn",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "customer_id",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    }
+  ]
+}

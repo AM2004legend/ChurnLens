@@ -4,8 +4,8 @@
 |---|---|---|
 | 0. Setup | ✅ done | venv (Python 3.12.6), pinned requirements, ruff + pytest config, folders, .gitignore, docs |
 | 1. Dataset registry | ✅ done | 4 YAML configs; `io.load_config / read_raw / apply_mapping`; clear errors with close-match hints; xlsx parsed once and cached as pickle; all 4 datasets load |
-| 2. Schema + cleaning | ⏳ next | |
-| 3. Leakage guard + EDA | | |
+| 2. Schema + cleaning | ✅ done | `schema.infer_types / missing_report / clean_labelled / clean_transactions`; reports in `reports/<name>/cleaning.json`. bank 10,000 rows (no missing); ecommerce 5,630 (4–6% missing in 7 numeric cols, 4 duplicate category spellings merged); subscription 243,787 (no missing); retail 1,067,371 → 779,424 rows, 5,878 customers |
+| 3. Leakage guard + EDA | ⏳ next | |
 | 4. Transactions mode | | |
 | 5. Modelling | | |
 | 6. Cost-based threshold | | |
@@ -15,8 +15,9 @@
 | 10. Ship | | |
 
 ## Known issues
-- None yet.
+- Subscription dataset looks synthetic (categories almost perfectly uniform) — results show the method, not real behaviour.
 
 ## Later (ideas, not in scope yet)
 - Survival analysis (lifelines) — PRD stretch, only after phase 10.
 - Calibration plots — PRD stretch.
+- Net retail returns against their original purchase line instead of only dropping the return row.

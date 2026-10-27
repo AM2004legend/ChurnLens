@@ -1,0 +1,97 @@
+{
+  "cleaning": {
+    "rows_in": 10000,
+    "category_maps_applied": [],
+    "dropped_missing_id_or_label": 0,
+    "dropped_duplicate_rows": 0,
+    "dropped_duplicate_ids": 0,
+    "rows_out": 10000,
+    "churn_rate": 0.2037
+  },
+  "missing": [
+    {
+      "column": "Age",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Balance",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "CreditScore",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "EstimatedSalary",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Gender",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Geography",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "HasCrCard",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "IsActiveMember",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "NumOfProducts",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "RowNumber",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Surname",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Tenure",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "churn",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "customer_id",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "cleaning": {
+    "rows_in": 1067371,
+    "dropped_missing_customer": 243007,
+    "dropped_missing_date_or_amount": 0,
+    "dropped_duplicate_rows": 26480,
+    "dropped_returns_or_zero_amount": 18460,
+    "rows_out": 779424,
+    "customers": 5878,
+    "date_min": "2009-12-01 07:45:00",
+    "date_max": "2011-12-09 12:50:00"
+  },
+  "missing": [
+    {
+      "column": "customer_id",
+      "type": "",
+      "n_missing": 243007,
+      "pct_missing": 22.77
+    },
+    {
+      "column": "raw_Description",
+      "type": "",
+      "n_missing": 4382,
+      "pct_missing": 0.41
+    },
+    {
+      "column": "amount",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "date",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "invoice",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "raw_Country",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "raw_StockCode",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    }
+  ]
+}

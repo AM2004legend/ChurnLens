@@ -1,0 +1,139 @@
+{
+  "cleaning": {
+    "rows_in": 243787,
+    "category_maps_applied": [],
+    "dropped_missing_id_or_label": 0,
+    "dropped_duplicate_rows": 0,
+    "dropped_duplicate_ids": 0,
+    "rows_out": 243787,
+    "churn_rate": 0.1812
+  },
+  "missing": [
+    {
+      "column": "AccountAge",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "AverageViewingDuration",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "ContentDownloadsPerMonth",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "ContentType",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "DeviceRegistered",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "Gender",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "GenrePreference",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "MonthlyCharges",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "MultiDeviceAccess",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "PaperlessBilling",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "ParentalControl",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "PaymentMethod",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "SubscriptionType",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "SubtitlesEnabled",
+      "type": "categorical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "SupportTicketsPerMonth",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "TotalCharges",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "UserRating",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "ViewingHoursPerWeek",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "WatchlistSize",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "churn",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "customer_id",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    }
+  ]
+}

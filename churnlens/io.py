@@ -252,4 +252,8 @@ def _map_transactions(df: pd.DataFrame, cfg: DatasetConfig, cols: dict[str, Any]
     out[AMOUNT] = values.prod(axis=1, min_count=len(amount_cols))
     if invoice_col:
         out[INVOICE] = df[invoice_col].astype("string")
-    return out
+    # Keep the other raw columns (e.g. product code) so cleaning can tell a true duplicate row
+    # from two different products that happen to share invoice, time and amount.
+    used = {cols["customer_id"], cols["date"], *amount_cols, invoice_col}
+    extra = df[[c for c in df.columns if c not in used]]
+    return pd.concat([out, extra.add_prefix("raw_")], axis=1)

@@ -13,3 +13,7 @@ costs:              # ASSUMED values (₹)
   offer_cost: 200
   customer_value: 3000
   offer_success_rate: 0.3
+category_map:       # same thing spelled differently in the raw data
+  PreferredLoginDevice: {Phone: Mobile Phone}
+  PreferredPaymentMode: {CC: Credit Card, COD: Cash on Delivery}
+  PreferedOrderCat: {Mobile: Mobile Phone}
