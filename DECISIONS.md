@@ -79,3 +79,20 @@ Each entry: date — decision — why — alternatives considered.
 
 ## 2026-10-27 — Date parsing uses `format="mixed"`
 - **Why:** with `errors="coerce"` alone, pandas infers one format from the first value and silently turns differently-formatted dates into NaT (found via the test fixture). Mixed parsing handles uploaded CSVs with inconsistent date strings.
+
+## 2026-10-27 — Ecommerce near-duplicate customers → grouped split (leak found in phase 5)
+- **Symptom:** LightGBM test ROC-AUC 0.9985 / PR-AUC 0.992 while logistic regression got 0.89 — the "too good to be true" rule fired.
+- **Cause:** 557 rows (9.9%) repeat another row's entire feature profile under a new CustomerID; ~66% of rows share CashbackAmount (to the cent) + Gender + MaritalStatus + CityTier with another row, and 98.7% of those groups have one label. Likely oversampled copies. A random split puts copies on both sides; trees memorise them.
+- **Evidence (CV on train only):** random CV LightGBM AUC 0.989 → grouped CV 0.958; logreg 0.896 → 0.893 (linear models can't memorise, so they barely move).
+- **Fix:** new leakage check `duplicate_profiles` (flags > 1% duplicate feature rows) and YAML `split.group_by`; train/test split uses StratifiedGroupKFold and CV uses grouped folds. Result: test ROC-AUC 0.943, PR-AUC 0.830, consistent with CV 0.954.
+- **Alternatives:** drop exact duplicates only (removes 557 rows but near-copies remain: CV AUC still 0.987); de-duplicate by the group key (throws away 1,470 rows of possibly-real customers).
+
+## 2026-10-27 — Model settings
+- LightGBM: 300 trees, lr 0.05, 31 leaves, min_child_samples 30, row/col subsampling 0.8, class_weight balanced. No hyper-parameter search — the PRD asks for a fair baseline comparison; tuning is a Later item (would use CV on train only).
+- LogReg: StandardScaler + class_weight balanced, max_iter 2000.
+- Missing numeric → median + missing-indicator columns; missing categorical → "Missing" category. Date columns are not used as raw features.
+- **Selection by CV PR-AUC**, never by test. Test metrics for both models are reported for transparency.
+- **Class weights shift probabilities upward** (they are not calibrated churn probabilities). That is fine for ranking and for the cost-based threshold, which is chosen on out-of-fold scores against real labels.
+
+## 2026-10-27 — Findings worth noting
+- LightGBM clearly beats LogReg on bank (PR-AUC 0.70 vs 0.47: non-linear effects like NumOfProducts = 3–4) and ecommerce. On retail RFM and subscription, LogReg is as good or slightly better — few, mostly monotonic features leave nothing for trees to add.

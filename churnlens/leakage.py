@@ -22,6 +22,7 @@ from churnlens.schema import CATEGORICAL, DATE_TYPE, NUMERIC
 
 ID_UNIQUE_RATIO = 0.95
 AUC_LIMIT = 0.95
+DUPLICATE_SHARE = 0.01
 SUSPICIOUS_NAME = re.compile(r"churn|cancel|exit|close|terminat", re.IGNORECASE)
 
 
@@ -117,10 +118,34 @@ def single_feature_aucs(df: pd.DataFrame, types: dict[str, str]) -> dict[str, fl
     return dict(sorted(out.items(), key=lambda kv: -kv[1]))
 
 
+def check_duplicate_profiles(df: pd.DataFrame, types: dict[str, str]) -> list[LeakageFlag]:
+    """Rows whose every feature equals another row's (under a different customer id).
+
+    Usually copies of one customer (merged systems, oversampling). After a random split the
+    model meets the same "person" in train and test and the score measures memory, not
+    prediction. Fix: list identifying columns in the YAML `split.group_by`.
+    """
+    cols = [c for c in types if c in df.columns]
+    if not cols or not len(df):
+        return []
+    share = float(df.duplicated(subset=cols, keep="first").mean())
+    if share <= DUPLICATE_SHARE:
+        return []
+    return [
+        LeakageFlag(
+            "(all features)", "duplicate_profiles", round(share, 4),
+            f"{share:.1%} of rows repeat another row's full feature profile under a different "
+            "id — likely copies of the same customer. Use split.group_by so copies stay on "
+            "one side of the split.",
+        )
+    ]
+
+
 def check_leakage(df: pd.DataFrame, types: dict[str, str]) -> LeakageReport:
     """Run all checks. `df` should be the TRAINING split only."""
     report = LeakageReport()
     report.flags += check_id_like(df, types)
+    report.flags += check_duplicate_profiles(df, types)
 
     report.single_feature_auc = single_feature_aucs(df, types)
     for col, auc in report.single_feature_auc.items():
@@ -154,14 +179,24 @@ def check_leakage(df: pd.DataFrame, types: dict[str, str]) -> LeakageReport:
     return report
 
 
-def to_markdown(report: LeakageReport, dataset: str, dropped: list[str]) -> str:
+def unresolved(report: LeakageReport, dropped: list[str], grouped: bool) -> list[str]:
+    """Flagged columns the config has not dealt with (dropped, or grouped for duplicates)."""
+    return sorted({f.column for f in report.flags if f.column not in dropped
+                   and not (grouped and f.check == "duplicate_profiles")})
+
+
+def to_markdown(report: LeakageReport, dataset: str, dropped: list[str],
+                grouped: bool = False) -> str:
     lines = [f"# Leakage report — {dataset}", "", "Computed on the training split only.", ""]
     if report.flags:
         lines += ["| Column | Check | Value | Dropped in config? | Why flagged |",
                   "|---|---|---|---|---|"]
         for f in report.flags:
             value = "" if f.value is None else f"{f.value}"
-            drop = "yes" if f.column in dropped else "**no**"
+            if f.check == "duplicate_profiles":
+                drop = "grouped split" if grouped else "**no**"
+            else:
+                drop = "yes" if f.column in dropped else "**no**"
             lines.append(f"| {f.column} | {f.check} | {value} | {drop} | {f.message} |")
     else:
         lines.append("No columns flagged.")
@@ -171,9 +206,11 @@ def to_markdown(report: LeakageReport, dataset: str, dropped: list[str]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def save_report(report: LeakageReport, dataset: str, dropped: list[str]) -> None:
+def save_report(report: LeakageReport, dataset: str, dropped: list[str],
+                grouped: bool = False) -> None:
     out_dir = config.REPORTS_DIR / dataset
     out_dir.mkdir(parents=True, exist_ok=True)
-    payload = report.to_dict() | {"dropped_in_config": dropped}
+    payload = report.to_dict() | {"dropped_in_config": dropped, "grouped_split": grouped}
     (out_dir / "leakage.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    (out_dir / "leakage.md").write_text(to_markdown(report, dataset, dropped), encoding="utf-8")
+    (out_dir / "leakage.md").write_text(to_markdown(report, dataset, dropped, grouped),
+                                         encoding="utf-8")

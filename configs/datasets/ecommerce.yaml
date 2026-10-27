@@ -8,7 +8,11 @@ columns:
   churn_label: Churn
   churn_positive_value: 1
   revenue: null
-drop: []            # phase 3 review: no leakage flags
+drop: []            # phase 3 review: no column-level leakage flags
+split:
+  # ~66% of rows are near-copies of another customer (same cashback to the cent + same
+  # demographics, 98.7% same label). Keep copies on one side of every split (DECISIONS.md).
+  group_by: [CashbackAmount, Gender, MaritalStatus, CityTier]
 costs:              # ASSUMED values (₹)
   offer_cost: 200
   customer_value: 3000

@@ -56,6 +56,12 @@ class DatasetConfig:
     category_map: dict[str, dict[str, str]] = field(default_factory=dict)
     segments: dict[str, dict[str, str]] = field(default_factory=dict)
     transactions: dict[str, Any] = field(default_factory=dict)
+    split: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def group_by(self) -> list[str]:
+        """Columns identifying copies of one customer (kept on one side of every split)."""
+        return list(self.split.get("group_by") or [])
 
     @property
     def inactivity_days(self) -> int:
@@ -116,6 +122,7 @@ def parse_config(raw: dict[str, Any], source: str = "<dict>") -> DatasetConfig:
         category_map=dict(raw.get("category_map") or {}),
         segments=dict(raw.get("segments") or {}),
         transactions=dict(raw.get("transactions") or {}),
+        split=dict(raw.get("split") or {}),
     )
 
 

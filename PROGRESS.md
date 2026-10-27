@@ -7,8 +7,8 @@
 | 2. Schema + cleaning | ✅ done | `schema.infer_types / missing_report / clean_labelled / clean_transactions`; reports in `reports/<name>/cleaning.json`. bank 10,000 rows (no missing); ecommerce 5,630 (4–6% missing in 7 numeric cols, 4 duplicate category spellings merged); subscription 243,787 (no missing); retail 1,067,371 → 779,424 rows, 5,878 customers |
 | 3. Leakage guard + EDA | ✅ done | Stratified 80/20 split first; leakage + EDA on train only. Reports: `reports/<name>/leakage.md`, `eda.md`, figures in `reports/figures/`. Max single-feature AUC 0.80 — no leaks beyond bank RowNumber |
 | 4. Transactions mode | ⏳ next | |
-| 5. Modelling | ⏳ next | |
-| 6. Cost-based threshold | | |
+| 5. Modelling | ✅ done | `models.py` + `run.py` (`python -m churnlens.run --dataset X / --all`). LogReg vs LightGBM, 5-fold stratified (grouped where configured) CV on train, best by CV PR-AUC, test metrics @0.5 in `reports/<name>/metrics.json`. Best test ROC-AUC / PR-AUC: bank LightGBM 0.856/0.700, ecommerce LightGBM 0.943/0.830, retail LogReg 0.752/0.700, subscription LogReg 0.755/0.409 |
+| 6. Cost-based threshold | ⏳ next | |
 | 7. Explain + segments | | |
 | 8. Cross-industry run | | |
 | 9. Streamlit app | | |
@@ -16,9 +16,12 @@
 
 ## Known issues
 - Retail: churn rate shifts between train (64%) and test (49%) cutoffs — seasonality (test label window covers Sep–Dec Christmas trade). Probabilities will be miscalibrated on test; ranking metrics (ROC/PR-AUC) are less affected.
+- Ecommerce: ~66% of rows are near-copies of other customers; handled with a grouped split. Its scores are still the highest of the four and should be read with that caveat.
+- Retail: CV ROC-AUC 0.80 vs test 0.75 — the gap is the seasonal shift between cutoffs.
 - Subscription dataset looks synthetic (categories almost perfectly uniform) — results show the method, not real behaviour.
 
 ## Later (ideas, not in scope yet)
 - Survival analysis (lifelines) — PRD stretch, only after phase 10.
 - Calibration plots — PRD stretch.
+- Hyper-parameter tuning with CV on train (e.g. small LightGBM grid).
 - Net retail returns against their original purchase line instead of only dropping the return row.

@@ -21,5 +21,6 @@
     "DeviceRegistered": 0.502,
     "MultiDeviceAccess": 0.5013
   },
-  "dropped_in_config": []
+  "dropped_in_config": [],
+  "grouped_split": false
 }

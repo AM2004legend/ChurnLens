@@ -1,0 +1,98 @@
+{
+  "dataset": "bank",
+  "mode": "labelled",
+  "split": {
+    "method": "stratified random 80%/20%",
+    "group_by": [],
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "train_churn_rate": 0.2037,
+    "test_churn_rate": 0.2035
+  },
+  "features": {
+    "numeric": [
+      "CreditScore",
+      "Age",
+      "Tenure",
+      "Balance",
+      "NumOfProducts",
+      "HasCrCard",
+      "IsActiveMember",
+      "EstimatedSalary"
+    ],
+    "categorical": [
+      "Geography",
+      "Gender"
+    ],
+    "dropped": [
+      "RowNumber",
+      "Surname"
+    ]
+  },
+  "cv": [
+    {
+      "model": "logreg",
+      "roc_auc_mean": 0.7662,
+      "roc_auc_std": 0.0205,
+      "pr_auc_mean": 0.4569,
+      "pr_auc_std": 0.0285,
+      "f1_mean": 0.4887,
+      "f1_std": 0.019,
+      "precision_mean": 0.3798,
+      "precision_std": 0.0143,
+      "recall_mean": 0.6859,
+      "recall_std": 0.0358
+    },
+    {
+      "model": "lightgbm",
+      "roc_auc_mean": 0.8569,
+      "roc_auc_std": 0.0113,
+      "pr_auc_mean": 0.6866,
+      "pr_auc_std": 0.026,
+      "f1_mean": 0.6109,
+      "f1_std": 0.0134,
+      "precision_mean": 0.5615,
+      "precision_std": 0.0096,
+      "recall_mean": 0.6705,
+      "recall_std": 0.0298
+    }
+  ],
+  "selection_metric": "pr_auc",
+  "best_model": "lightgbm",
+  "test_at_0_5": {
+    "logreg": {
+      "n": 2000,
+      "churn_rate": 0.2035,
+      "threshold": 0.5,
+      "precision": 0.3872,
+      "recall": 0.7002,
+      "f1": 0.4987,
+      "roc_auc": 0.7772,
+      "pr_auc": 0.4679,
+      "share_targeted": 0.368,
+      "confusion_matrix": {
+        "tn": 1142,
+        "fp": 451,
+        "fn": 122,
+        "tp": 285
+      }
+    },
+    "lightgbm": {
+      "n": 2000,
+      "churn_rate": 0.2035,
+      "threshold": 0.5,
+      "precision": 0.5566,
+      "recall": 0.7002,
+      "f1": 0.6202,
+      "roc_auc": 0.8563,
+      "pr_auc": 0.7001,
+      "share_targeted": 0.256,
+      "confusion_matrix": {
+        "tn": 1366,
+        "fp": 227,
+        "fn": 122,
+        "tp": 285
+      }
+    }
+  }
+}

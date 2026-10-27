@@ -10,5 +10,6 @@
     "monetary_avg": 0.6131,
     "purchase_trend": 0.5771
   },
-  "dropped_in_config": []
+  "dropped_in_config": [],
+  "grouped_split": false
 }

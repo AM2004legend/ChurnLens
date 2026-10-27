@@ -12,44 +12,62 @@
   },
   "missing": [
     {
+      "column": "churn",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
       "column": "customer_id",
       "type": "",
-      "n_missing": 243007,
-      "pct_missing": 22.77
-    },
-    {
-      "column": "raw_Description",
-      "type": "",
-      "n_missing": 4382,
-      "pct_missing": 0.41
-    },
-    {
-      "column": "amount",
-      "type": "",
       "n_missing": 0,
       "pct_missing": 0.0
     },
     {
-      "column": "date",
-      "type": "",
+      "column": "frequency",
+      "type": "numeric",
       "n_missing": 0,
       "pct_missing": 0.0
     },
     {
-      "column": "invoice",
-      "type": "",
+      "column": "monetary_avg",
+      "type": "numeric",
       "n_missing": 0,
       "pct_missing": 0.0
     },
     {
-      "column": "raw_Country",
-      "type": "",
+      "column": "monetary_total",
+      "type": "numeric",
       "n_missing": 0,
       "pct_missing": 0.0
     },
     {
-      "column": "raw_StockCode",
-      "type": "",
+      "column": "purchase_trend",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "purchases_last_90",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "purchases_prev_90",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "recency_days",
+      "type": "numeric",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "tenure_days",
+      "type": "numeric",
       "n_missing": 0,
       "pct_missing": 0.0
     }

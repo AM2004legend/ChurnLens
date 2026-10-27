@@ -16,44 +16,44 @@
     {
       "column": "DaySinceLastOrder",
       "type": "numeric",
-      "n_missing": 307,
-      "pct_missing": 5.45
-    },
-    {
-      "column": "OrderAmountHikeFromlastYear",
-      "type": "numeric",
-      "n_missing": 265,
-      "pct_missing": 4.71
+      "n_missing": 238,
+      "pct_missing": 5.29
     },
     {
       "column": "Tenure",
       "type": "numeric",
-      "n_missing": 264,
-      "pct_missing": 4.69
-    },
-    {
-      "column": "OrderCount",
-      "type": "numeric",
-      "n_missing": 258,
-      "pct_missing": 4.58
+      "n_missing": 223,
+      "pct_missing": 4.95
     },
     {
       "column": "CouponUsed",
       "type": "numeric",
-      "n_missing": 256,
-      "pct_missing": 4.55
-    },
-    {
-      "column": "HourSpendOnApp",
-      "type": "numeric",
-      "n_missing": 255,
-      "pct_missing": 4.53
+      "n_missing": 208,
+      "pct_missing": 4.62
     },
     {
       "column": "WarehouseToHome",
       "type": "numeric",
-      "n_missing": 251,
-      "pct_missing": 4.46
+      "n_missing": 208,
+      "pct_missing": 4.62
+    },
+    {
+      "column": "OrderCount",
+      "type": "numeric",
+      "n_missing": 207,
+      "pct_missing": 4.6
+    },
+    {
+      "column": "OrderAmountHikeFromlastYear",
+      "type": "numeric",
+      "n_missing": 200,
+      "pct_missing": 4.44
+    },
+    {
+      "column": "HourSpendOnApp",
+      "type": "numeric",
+      "n_missing": 186,
+      "pct_missing": 4.13
     },
     {
       "column": "CashbackAmount",
@@ -129,6 +129,12 @@
     },
     {
       "column": "customer_id",
+      "type": "",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "split_group",
       "type": "",
       "n_missing": 0,
       "pct_missing": 0.0

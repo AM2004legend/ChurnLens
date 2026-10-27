@@ -10,7 +10,7 @@ from __future__ import annotations
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedGroupKFold, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
@@ -18,20 +18,36 @@ from churnlens import config
 from churnlens.io import TARGET
 
 TEST_SIZE = 0.2
+GROUP = "split_group"  # helper column, never a model feature
+
+
+def group_key(df: pd.DataFrame, columns: list[str]) -> pd.Series:
+    """One key per 'same customer' profile, e.g. identical cashback + demographics."""
+    missing = [c for c in columns if c not in df.columns]
+    if missing:
+        raise ValueError(f"split.group_by columns not in data: {missing}")
+    return df[columns].astype("string").fillna("<NA>").agg("|".join, axis=1)
 
 
 def split_labelled(
-    df: pd.DataFrame, test_size: float = TEST_SIZE
+    df: pd.DataFrame, test_size: float = TEST_SIZE, groups: pd.Series | None = None
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Stratified random split for one-row-per-customer data.
+    """Stratified split for one-row-per-customer data.
 
     Stratifying keeps the churn rate the same in train and test, which matters when churners
-    are a minority (~15–20%): an unlucky split could otherwise shift the metrics noticeably.
+    are a minority (~15–20%). With `groups`, all rows sharing a group key go to the same side,
+    so duplicated customers cannot be memorised in train and "recognised" in test.
     """
-    train, test = train_test_split(
-        df, test_size=test_size, stratify=df[TARGET], random_state=config.RANDOM_STATE
-    )
-    return train.reset_index(drop=True), test.reset_index(drop=True)
+    if groups is None:
+        train, test = train_test_split(
+            df, test_size=test_size, stratify=df[TARGET], random_state=config.RANDOM_STATE
+        )
+        return train.reset_index(drop=True), test.reset_index(drop=True)
+    n_splits = round(1 / test_size)
+    sgkf = StratifiedGroupKFold(n_splits=n_splits, shuffle=True,
+                                random_state=config.RANDOM_STATE)
+    train_idx, test_idx = next(sgkf.split(df, df[TARGET], groups))
+    return df.iloc[train_idx].reset_index(drop=True), df.iloc[test_idx].reset_index(drop=True)
 
 
 def build_preprocessor(

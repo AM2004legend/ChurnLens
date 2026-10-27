@@ -110,3 +110,19 @@ def test_source_column_maps_back_onehot_and_indicator() -> None:
     assert features.source_column("cat__PlanType_gold", num, cat) == "PlanType"
     assert features.source_column("cat__Plan_gold", num, cat) == "Plan"
     assert features.source_column("num__missingindicator_Tenure", num, cat) == "Tenure"
+
+
+def test_duplicate_profiles_flagged() -> None:
+    df = pd.DataFrame({"customer_id": list("abcd"), "churn": [1, 1, 0, 0],
+                       "x": [1, 1, 2, 3], "y": ["p", "p", "q", "r"]})
+    flags = leakage.check_duplicate_profiles(df, {"x": "numeric", "y": "categorical"})
+    assert len(flags) == 1 and flags[0].value == 0.25
+
+
+def test_grouped_split_keeps_copies_together() -> None:
+    n = 200
+    df = pd.DataFrame({"churn": ([1] * 40 + [0] * 160), "k": [i // 2 for i in range(n)]})
+    groups = features.group_key(df, ["k"])
+    train, test = features.split_labelled(df, groups=groups)
+    assert not set(train["k"]) & set(test["k"])
+    assert 0.15 <= len(test) / n <= 0.25

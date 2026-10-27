@@ -24,5 +24,6 @@
   "dropped_in_config": [
     "RowNumber",
     "Surname"
-  ]
+  ],
+  "grouped_split": false
 }

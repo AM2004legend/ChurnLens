@@ -1,0 +1,96 @@
+{
+  "dataset": "retail",
+  "mode": "transactions",
+  "split": {
+    "method": "time-based (train cutoff < test cutoff)",
+    "train_cutoff": "2011-06-12",
+    "test_cutoff": "2011-09-10",
+    "last_date": "2011-12-09",
+    "inactivity_days": 90,
+    "lookback_days": 365,
+    "train_customers": 4332,
+    "test_customers": 4313,
+    "train_churn_rate": 0.6413,
+    "test_churn_rate": 0.4929
+  },
+  "features": {
+    "numeric": [
+      "recency_days",
+      "frequency",
+      "monetary_total",
+      "monetary_avg",
+      "tenure_days",
+      "purchases_last_90",
+      "purchases_prev_90",
+      "purchase_trend"
+    ],
+    "categorical": [],
+    "dropped": []
+  },
+  "cv": [
+    {
+      "model": "logreg",
+      "roc_auc_mean": 0.7963,
+      "roc_auc_std": 0.0185,
+      "pr_auc_mean": 0.8541,
+      "pr_auc_std": 0.0128,
+      "f1_mean": 0.7858,
+      "f1_std": 0.0151,
+      "precision_mean": 0.8047,
+      "precision_std": 0.0165,
+      "recall_mean": 0.7678,
+      "recall_std": 0.0153
+    },
+    {
+      "model": "lightgbm",
+      "roc_auc_mean": 0.7824,
+      "roc_auc_std": 0.0133,
+      "pr_auc_mean": 0.8472,
+      "pr_auc_std": 0.0114,
+      "f1_mean": 0.7784,
+      "f1_std": 0.0024,
+      "precision_mean": 0.7932,
+      "precision_std": 0.006,
+      "recall_mean": 0.7642,
+      "recall_std": 0.0081
+    }
+  ],
+  "selection_metric": "pr_auc",
+  "best_model": "logreg",
+  "test_at_0_5": {
+    "logreg": {
+      "n": 4313,
+      "churn_rate": 0.4929,
+      "threshold": 0.5,
+      "precision": 0.6495,
+      "recall": 0.7785,
+      "f1": 0.7082,
+      "roc_auc": 0.7518,
+      "pr_auc": 0.6999,
+      "share_targeted": 0.5908,
+      "confusion_matrix": {
+        "tn": 1294,
+        "fp": 893,
+        "fn": 471,
+        "tp": 1655
+      }
+    },
+    "lightgbm": {
+      "n": 4313,
+      "churn_rate": 0.4929,
+      "threshold": 0.5,
+      "precision": 0.6477,
+      "recall": 0.7775,
+      "f1": 0.7067,
+      "roc_auc": 0.7478,
+      "pr_auc": 0.6943,
+      "share_targeted": 0.5917,
+      "confusion_matrix": {
+        "tn": 1288,
+        "fp": 899,
+        "fn": 473,
+        "tp": 1653
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "dataset": "subscription",
+  "mode": "labelled",
+  "split": {
+    "method": "stratified random 80%/20%",
+    "group_by": [],
+    "train_rows": 195029,
+    "test_rows": 48758,
+    "train_churn_rate": 0.1812,
+    "test_churn_rate": 0.1812
+  },
+  "features": {
+    "numeric": [
+      "AccountAge",
+      "MonthlyCharges",
+      "TotalCharges",
+      "ViewingHoursPerWeek",
+      "AverageViewingDuration",
+      "ContentDownloadsPerMonth",
+      "UserRating",
+      "SupportTicketsPerMonth",
+      "WatchlistSize"
+    ],
+    "categorical": [
+      "SubscriptionType",
+      "PaymentMethod",
+      "PaperlessBilling",
+      "ContentType",
+      "MultiDeviceAccess",
+      "DeviceRegistered",
+      "GenrePreference",
+      "Gender",
+      "ParentalControl",
+      "SubtitlesEnabled"
+    ],
+    "dropped": []
+  },
+  "cv": [
+    {
+      "model": "logreg",
+      "roc_auc_mean": 0.749,
+      "roc_auc_std": 0.0032,
+      "pr_auc_mean": 0.402,
+      "pr_auc_std": 0.003,
+      "f1_mean": 0.4376,
+      "f1_std": 0.003,
+      "precision_mean": 0.3202,
+      "precision_std": 0.0025,
+      "recall_mean": 0.6908,
+      "recall_std": 0.0048
+    },
+    {
+      "model": "lightgbm",
+      "roc_auc_mean": 0.7457,
+      "roc_auc_std": 0.0031,
+      "pr_auc_mean": 0.3969,
+      "pr_auc_std": 0.0038,
+      "f1_mean": 0.4364,
+      "f1_std": 0.0028,
+      "precision_mean": 0.3205,
+      "precision_std": 0.0023,
+      "recall_mean": 0.6835,
+      "recall_std": 0.0041
+    }
+  ],
+  "selection_metric": "pr_auc",
+  "best_model": "logreg",
+  "test_at_0_5": {
+    "logreg": {
+      "n": 48758,
+      "churn_rate": 0.1812,
+      "threshold": 0.5,
+      "precision": 0.3228,
+      "recall": 0.6998,
+      "f1": 0.4418,
+      "roc_auc": 0.7545,
+      "pr_auc": 0.4087,
+      "share_targeted": 0.3929,
+      "confusion_matrix": {
+        "tn": 26947,
+        "fp": 12974,
+        "fn": 2653,
+        "tp": 6184
+      }
+    },
+    "lightgbm": {
+      "n": 48758,
+      "churn_rate": 0.1812,
+      "threshold": 0.5,
+      "precision": 0.3199,
+      "recall": 0.6903,
+      "f1": 0.4372,
+      "roc_auc": 0.7518,
+      "pr_auc": 0.4043,
+      "share_targeted": 0.3911,
+      "confusion_matrix": {
+        "tn": 26951,
+        "fp": 12970,
+        "fn": 2737,
+        "tp": 6100
+      }
+    }
+  }
+}
