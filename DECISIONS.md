@@ -135,3 +135,8 @@ Each entry: date — decision — why — alternatives considered.
 ## 2026-10-27 — Deployment target: Streamlit Community Cloud
 - Free, deploys straight from the GitHub repo using `requirements.txt`; main file `app/streamlit_app.py`. Needs the user's GitHub + Streamlit accounts, so Claude prepares everything but does not push or deploy.
 - Alternatives: Hugging Face Spaces (also free; Docker or Streamlit SDK), Render (needs a start command and sleeps on free tier).
+
+## 2026-10-27 — Container-aware thread count (deployed app was ~40× slow)
+- **Symptom:** on Streamlit Cloud, training the 2,000-row synthetic demo had not finished after 2+ minutes; locally it takes ~3 s and the full test suite (incl. an app training run) takes ~16 s on GitHub's Linux runners.
+- **Cause (hypothesis, consistent with both observations):** `n_jobs=-1` lets LightGBM/BLAS start one thread per core *reported* by the OS, but the container's cgroup CPU quota is much smaller, so threads oversubscribe the real CPUs.
+- **Fix:** `config.n_jobs()` = min(visible cores, cgroup v2 `cpu.max` / v1 cfs quota), overridable via `CHURNLENS_N_JOBS`; used for LightGBM, and the app caps OMP/OpenBLAS/MKL threads to the same value before numpy loads. Results unchanged locally (bank metrics.json byte-identical).

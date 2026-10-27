@@ -58,7 +58,7 @@ def make_model(name: str, numeric: list[str], categorical: list[str]) -> Pipelin
             subsample_freq=1,
             colsample_bytree=0.8,
             random_state=config.RANDOM_STATE,
-            n_jobs=-1,
+            n_jobs=config.n_jobs(),  # container-aware: avoids thread oversubscription
             verbose=-1,
         )
         return Pipeline([("prep", build_preprocessor(numeric, categorical, scale=False)),

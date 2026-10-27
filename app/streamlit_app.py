@@ -8,6 +8,7 @@ Nothing uploaded is written to disk: uploads are processed in memory for the ses
 from __future__ import annotations
 
 import dataclasses
+import os
 import sys
 from pathlib import Path
 
@@ -17,6 +18,13 @@ import plotly.graph_objects as go
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from churnlens import config  # noqa: E402
+
+# Cap BLAS/OpenMP threads at the container's real CPU quota BEFORE numpy/sklearn/lightgbm load:
+# cloud containers often report the host's core count, and oversubscribed threads crawl.
+for _var in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ.setdefault(_var, str(config.n_jobs()))
 
 from churnlens import io, models, run, segments, synthetic, threshold  # noqa: E402
 from churnlens.io import ID, TARGET, Costs  # noqa: E402
