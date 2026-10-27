@@ -128,3 +128,10 @@ Each entry: date — decision — why — alternatives considered.
 - **Uploads stay in memory**: `prepare(raw=df, save_figures=False)`, no model or report files written (PRD non-goal: storing uploaded data).
 - Threshold slider recomputes savings live on test scores; the *recommended* threshold is recomputed from train OOF scores when costs change, so it never uses test labels.
 - `AppTest` drives the real script in CI — catches broken tabs without a browser.
+
+## 2026-10-27 — README numbers are copied by script
+- `scripts/build_readme.py` fills `docs/README_template.md` with the tables from `reports/results.md`, so README numbers cannot drift from the code's output. Re-run after `python -m churnlens.run --all`.
+
+## 2026-10-27 — Deployment target: Streamlit Community Cloud
+- Free, deploys straight from the GitHub repo using `requirements.txt`; main file `app/streamlit_app.py`. Needs the user's GitHub + Streamlit accounts, so Claude prepares everything but does not push or deploy.
+- Alternatives: Hugging Face Spaces (also free; Docker or Streamlit SDK), Render (needs a start command and sleeps on free tier).
