@@ -246,7 +246,7 @@ def _map_transactions(df: pd.DataFrame, cfg: DatasetConfig, cols: dict[str, Any]
         _require(df, "invoice", invoice_col, cfg.name)
 
     out = pd.DataFrame({ID: df[cols["customer_id"]]})
-    out[DATE] = pd.to_datetime(df[cols["date"]], errors="coerce")
+    out[DATE] = pd.to_datetime(df[cols["date"]], errors="coerce", format="mixed")
     values = df[amount_cols].apply(pd.to_numeric, errors="coerce")
     # A list of columns means "multiply them", e.g. Quantity × Price = line amount.
     out[AMOUNT] = values.prod(axis=1, min_count=len(amount_cols))

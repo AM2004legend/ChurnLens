@@ -1,0 +1,14 @@
+{
+  "flags": [],
+  "single_feature_auc": {
+    "frequency": 0.7698,
+    "monetary_total": 0.7651,
+    "recency_days": 0.7497,
+    "purchases_last_90": 0.7391,
+    "purchases_prev_90": 0.679,
+    "tenure_days": 0.6146,
+    "monetary_avg": 0.6131,
+    "purchase_trend": 0.5771
+  },
+  "dropped_in_config": []
+}

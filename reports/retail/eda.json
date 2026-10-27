@@ -1,0 +1,82 @@
+{
+  "dataset": "retail",
+  "rows": 4332,
+  "churn_rate": 0.6413,
+  "numeric_differences": [
+    {
+      "column": "recency_days",
+      "mean_churned": 161.804,
+      "mean_stayed": 75.123,
+      "median_churned": 187.0,
+      "median_stayed": 38.0,
+      "std_diff": 0.946
+    },
+    {
+      "column": "purchases_last_90",
+      "mean_churned": 0.429,
+      "mean_stayed": 1.84,
+      "median_churned": 0.0,
+      "median_stayed": 1.0,
+      "std_diff": -0.688
+    },
+    {
+      "column": "frequency",
+      "mean_churned": 2.367,
+      "mean_stayed": 7.31,
+      "median_churned": 2.0,
+      "median_stayed": 4.0,
+      "std_diff": -0.613
+    },
+    {
+      "column": "purchases_prev_90",
+      "mean_churned": 0.32,
+      "mean_stayed": 1.282,
+      "median_churned": 0.0,
+      "median_stayed": 1.0,
+      "std_diff": -0.587
+    },
+    {
+      "column": "tenure_days",
+      "mean_churned": 329.846,
+      "mean_stayed": 386.703,
+      "median_churned": 325.0,
+      "median_stayed": 444.0,
+      "std_diff": -0.353
+    },
+    {
+      "column": "monetary_total",
+      "mean_churned": 889.387,
+      "mean_stayed": 3680.04,
+      "median_churned": 459.395,
+      "median_stayed": 1535.255,
+      "std_diff": -0.319
+    },
+    {
+      "column": "purchase_trend",
+      "mean_churned": 0.109,
+      "mean_stayed": 0.559,
+      "median_churned": 0.0,
+      "median_stayed": 0.0,
+      "std_diff": -0.305
+    },
+    {
+      "column": "monetary_avg",
+      "mean_churned": 367.467,
+      "mean_stayed": 419.805,
+      "median_churned": 257.832,
+      "median_stayed": 324.467,
+      "std_diff": -0.074
+    }
+  ],
+  "group_differences": [],
+  "findings": [
+    "Overall, 64.1% of customers in the training data churned.",
+    "Churners have higher recency_days (median 187 vs 38 for stayers; large difference, d=+0.95).",
+    "Churners have lower purchases_last_90 (median 0 vs 1 for stayers; medium difference, d=-0.69).",
+    "Churners have lower frequency (median 2 vs 4 for stayers; medium difference, d=-0.61).",
+    "Churners have lower purchases_prev_90 (median 0 vs 1 for stayers; medium difference, d=-0.59)."
+  ],
+  "figures": [
+    "reports/figures/retail_eda_numeric.png"
+  ]
+}
