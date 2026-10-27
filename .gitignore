@@ -1,0 +1,31 @@
+# Data: never commit raw or processed customer data
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Models / large artefacts
+models/
+*.joblib
+*.pkl
+
+# Generated per-customer outputs (may contain customer rows)
+reports/**/*targets*.csv
+reports/**/*customers*.csv
+
+# Environment / secrets
+.venv/
+.env
+
+# Python / tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Editor / unrelated tool folders
+.vscode/
+.sf/
+.claude/settings.local.json
