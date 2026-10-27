@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/AM2004legend/ChurnLens/actions/workflows/ci.yml/badge.svg)](https://github.com/AM2004legend/ChurnLens/actions/workflows/ci.yml)
 
+**Live app:** https://churnlens-fkwdmuukkgvssxus8ebsgh.streamlit.app/ — synthetic demo datasets + CSV upload (the real datasets are not redistributed; run locally to use them).
+
 **One churn-analytics pipeline for any customer business.** Give it a labelled customer table or a
 raw transaction log and it cleans the data, guards against leakage, explains who churns, compares
 models, chooses a decision threshold from the business's own costs, explains each prediction with
