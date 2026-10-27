@@ -1,0 +1,68 @@
+{
+  "explained_on": "test customers",
+  "model": "logreg",
+  "global_importance_mean_abs_shap": {
+    "AccountAge": 0.5339,
+    "AverageViewingDuration": 0.3864,
+    "ContentDownloadsPerMonth": 0.3363,
+    "ViewingHoursPerWeek": 0.3351,
+    "MonthlyCharges": 0.2494,
+    "SupportTicketsPerMonth": 0.2247,
+    "SubscriptionType": 0.099,
+    "PaymentMethod": 0.0821,
+    "GenrePreference": 0.0677,
+    "UserRating": 0.0592,
+    "WatchlistSize": 0.0529,
+    "SubtitlesEnabled": 0.0373,
+    "ContentType": 0.0342,
+    "ParentalControl": 0.0248,
+    "TotalCharges": 0.021,
+    "Gender": 0.0172,
+    "DeviceRegistered": 0.0123,
+    "MultiDeviceAccess": 0.0039,
+    "PaperlessBilling": 0.0021
+  },
+  "segments": [
+    {
+      "segment": "New subscribers",
+      "top_driver": "AccountAge",
+      "suggested_action": "First-90-days onboarding with personalised recommendations",
+      "customers": 6433,
+      "share": 0.4875,
+      "avg_score": 0.729
+    },
+    {
+      "segment": "Low engagement",
+      "top_driver": "AverageViewingDuration",
+      "suggested_action": "Personalised content push and watch-list reminders",
+      "customers": 4165,
+      "share": 0.3156,
+      "avg_score": 0.705
+    },
+    {
+      "segment": "Few downloads",
+      "top_driver": "ContentDownloadsPerMonth",
+      "suggested_action": "Promote offline downloads feature",
+      "customers": 2097,
+      "share": 0.1589,
+      "avg_score": 0.703
+    },
+    {
+      "segment": "Price-sensitive (high monthly charge)",
+      "top_driver": "MonthlyCharges",
+      "suggested_action": "Offer a cheaper plan or annual discount",
+      "customers": 412,
+      "share": 0.0312,
+      "avg_score": 0.675
+    },
+    {
+      "segment": "Frequent support contacts",
+      "top_driver": "SupportTicketsPerMonth",
+      "suggested_action": "Proactive support outreach",
+      "customers": 90,
+      "share": 0.0068,
+      "avg_score": 0.656
+    }
+  ],
+  "figure": "reports/figures/subscription_shap_global.png"
+}

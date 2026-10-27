@@ -11,3 +11,9 @@ costs:              # ASSUMED values (₹), not from the bank
   offer_cost: 500
   customer_value: 5000
   offer_success_rate: 0.3
+segments:           # top risk driver → segment + suggested action (illustrative business rules)
+  Age: {name: Older customers (45+), action: Relationship-manager call; retirement and wealth-planning products}
+  NumOfProducts: {name: Product-holding risk (mostly single-product), action: Bundle offer for a second product; review fit for 3+ product holders}
+  IsActiveMember: {name: Inactive members, action: Re-engagement campaign - app nudges and fee waiver for activity}
+  Geography: {name: Regional risk (mostly Germany), action: Check local competitor rates; region-specific pricing}
+  Balance: {name: High-balance customers, action: Priority service and savings-rate review}

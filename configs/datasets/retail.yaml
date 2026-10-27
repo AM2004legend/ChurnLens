@@ -16,3 +16,12 @@ costs:              # ASSUMED values (₹)
   offer_cost: 300
   customer_value: 4000
   offer_success_rate: 0.3
+segments:           # illustrative business rules
+  recency_days: {name: Gone quiet (long since last order), action: Win-back email with time-limited discount}
+  frequency: {name: Infrequent buyers, action: Loyalty points on the next two orders}
+  purchase_trend: {name: Slowing down, action: Account-manager check-in and reorder reminder}
+  purchases_last_90: {name: Slowing down, action: Account-manager check-in and reorder reminder}
+  purchases_prev_90: {name: Slowing down, action: Account-manager check-in and reorder reminder}
+  tenure_days: {name: New customers, action: Onboarding sequence and second-order incentive}
+  monetary_total: {name: Low spenders, action: Free-shipping threshold nudge}
+  monetary_avg: {name: Low spenders, action: Free-shipping threshold nudge}

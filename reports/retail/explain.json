@@ -1,0 +1,65 @@
+{
+  "explained_on": "test customers",
+  "model": "logreg",
+  "global_importance_mean_abs_shap": {
+    "recency_days": 0.4401,
+    "frequency": 0.4338,
+    "purchases_prev_90": 0.2608,
+    "purchases_last_90": 0.2102,
+    "tenure_days": 0.1614,
+    "purchase_trend": 0.0804,
+    "monetary_total": 0.0766,
+    "monetary_avg": 0.019
+  },
+  "segments": [
+    {
+      "segment": "Gone quiet (long since last order)",
+      "top_driver": "recency_days",
+      "suggested_action": "Win-back email with time-limited discount",
+      "customers": 1612,
+      "share": 0.4285,
+      "avg_score": 0.776
+    },
+    {
+      "segment": "Infrequent buyers",
+      "top_driver": "frequency",
+      "suggested_action": "Loyalty points on the next two orders",
+      "customers": 1023,
+      "share": 0.2719,
+      "avg_score": 0.58
+    },
+    {
+      "segment": "Slowing down",
+      "top_driver": "purchase_trend",
+      "suggested_action": "Account-manager check-in and reorder reminder",
+      "customers": 879,
+      "share": 0.2337,
+      "avg_score": 0.377
+    },
+    {
+      "segment": "New customers",
+      "top_driver": "tenure_days",
+      "suggested_action": "Onboarding sequence and second-order incentive",
+      "customers": 154,
+      "share": 0.0409,
+      "avg_score": 0.395
+    },
+    {
+      "segment": "Low spenders",
+      "top_driver": "monetary_avg",
+      "suggested_action": "Free-shipping threshold nudge",
+      "customers": 72,
+      "share": 0.0191,
+      "avg_score": 0.274
+    },
+    {
+      "segment": "No clear driver",
+      "top_driver": NaN,
+      "suggested_action": "Review the account and make a personalised retention offer",
+      "customers": 22,
+      "share": 0.0058,
+      "avg_score": 0.214
+    }
+  ],
+  "figure": "reports/figures/retail_shap_global.png"
+}

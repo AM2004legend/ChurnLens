@@ -21,3 +21,12 @@ category_map:       # same thing spelled differently in the raw data
   PreferredLoginDevice: {Phone: Mobile Phone}
   PreferredPaymentMode: {CC: Credit Card, COD: Cash on Delivery}
   PreferedOrderCat: {Mobile: Mobile Phone}
+segments:           # illustrative business rules
+  Tenure: {name: New customers (low tenure), action: Onboarding journey - welcome coupon and first-month check-in}
+  Complain: {name: Recent complainers, action: Priority complaint resolution plus service-recovery voucher}
+  CashbackAmount: {name: Low cashback earners, action: Targeted cashback boost on next order}
+  DaySinceLastOrder: {name: Lapsing shoppers, action: Win-back reminder with time-limited coupon}
+  PreferedOrderCat: {name: Category-linked risk, action: Category-specific offers and recommendations}
+  NumberOfAddress: {name: Many delivery addresses, action: Review delivery experience and address-saving UX}
+  WarehouseToHome: {name: Far from warehouse, action: Free or faster delivery offer}
+  SatisfactionScore: {name: Satisfaction risk, action: Follow-up survey call}

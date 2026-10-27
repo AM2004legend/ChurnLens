@@ -21,11 +21,13 @@ import pandas as pd
 from churnlens import (
     config,
     eda,
+    explain,
     features,
     io,
     leakage,
     models,
     schema,
+    segments,
     threshold,
     transactions,
 )
@@ -68,6 +70,15 @@ class Decision:
     curve_test: pd.DataFrame
     strategies_test: dict[str, dict[str, Any]]
     test_metrics_at_threshold: dict[str, Any]
+    figure: str | None = None
+
+
+@dataclass
+class Explained:
+    importance: pd.Series
+    customers: pd.DataFrame      # per-customer reasons (contains customer data: never committed)
+    segmented: pd.DataFrame      # at-risk customers with segment + action
+    summary: pd.DataFrame        # aggregate segment table (safe to commit)
     figure: str | None = None
 
 
@@ -155,7 +166,27 @@ def decide_threshold(prep: Prepared, trained: Trained, save_figure: bool = True)
     return decision
 
 
-def save_reports(prep: Prepared, trained: Trained, decision: Decision) -> dict[str, Any]:
+def explain_and_segment(prep: Prepared, trained: Trained, decision: Decision,
+                        save_figure: bool = True) -> Explained:
+    """SHAP on the test customers (the ones we would act on), top-3 reasons each, then segment
+    everyone at or above the chosen threshold by their main driver."""
+    cols = trained.numeric + trained.categorical
+    X_test = prep.test[cols].reset_index(drop=True)
+    values, names = explain.shap_matrix(trained.model, X_test, prep.train[cols])
+    contrib = explain.to_columns(values, names, trained.numeric, trained.categorical)
+    importance = explain.global_importance(contrib)
+    typical = explain.typical_values(prep.train, trained.numeric)
+    customers = explain.explain_customers(contrib, X_test, prep.test[ID].reset_index(drop=True),
+                                          trained.test_proba, typical)
+    segmented = segments.assign_segments(customers, decision.threshold, prep.cfg.segments)
+    result = Explained(importance, customers, segmented, segments.segment_summary(segmented))
+    if save_figure:
+        result.figure = explain.plot_global(importance, prep.cfg.name)
+    return result
+
+
+def save_reports(prep: Prepared, trained: Trained, decision: Decision,
+                 explained: Explained) -> dict[str, Any]:
     name = prep.cfg.name
     out_dir = config.REPORTS_DIR / name
     leakage.save_report(prep.leakage, name, prep.cfg.drop, bool(prep.cfg.group_by))
@@ -187,6 +218,18 @@ def save_reports(prep: Prepared, trained: Trained, decision: Decision) -> dict[s
         "curve_train_oof": decision.curve_train_oof.to_dict(orient="records"),
         "figure": decision.figure,
     })
+    write_json(out_dir / "explain.json", {
+        "explained_on": "test customers",
+        "model": trained.best,
+        "global_importance_mean_abs_shap": explained.importance.to_dict(),
+        "segments": explained.summary.to_dict(orient="records"),
+        "figure": explained.figure,
+    })
+    # Per-customer files are gitignored (*customers*, *targets*): they contain customer rows.
+    explained.customers.to_csv(out_dir / f"{name}_customers_explained.csv", index=False)
+    segments.save_targets(explained.segmented, name)
+    payload["top_features"] = list(explained.importance.head(5).index)
+    payload["segments"] = explained.summary.to_dict(orient="records")
     return payload
 
 
@@ -200,7 +243,8 @@ def run_dataset(name: str, save_figures: bool = True) -> dict[str, Any]:
     trained = train_and_evaluate(prep)
     models.save_model(trained.model, name, trained.best)
     decision = decide_threshold(prep, trained, save_figure=save_figures)
-    payload = save_reports(prep, trained, decision)
+    explained = explain_and_segment(prep, trained, decision, save_figure=save_figures)
+    payload = save_reports(prep, trained, decision, explained)
     payload["seconds"] = round(time.time() - t0, 1)
     return payload
 
@@ -220,6 +264,8 @@ def _print_summary(p: dict[str, Any]) -> None:
           f"{m['precision']}, recall {m['recall']}, F1 {m['f1']}, cm {m['confusion_matrix']}")
     strat = pd.DataFrame(p["strategies_on_test"]).T.reset_index(names="strategy")
     print("Savings on test (ASSUMED costs):\n" + md_table(strat))
+    print("Top SHAP features:", p["top_features"])
+    print("Segments:\n" + md_table(pd.DataFrame(p["segments"])))
 
 
 def main(argv: list[str] | None = None) -> None:

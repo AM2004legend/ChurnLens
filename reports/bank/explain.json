@@ -1,0 +1,83 @@
+{
+  "explained_on": "test customers",
+  "model": "lightgbm",
+  "global_importance_mean_abs_shap": {
+    "Age": 0.9011,
+    "NumOfProducts": 0.8897,
+    "IsActiveMember": 0.4406,
+    "Balance": 0.3217,
+    "Gender": 0.3137,
+    "Geography": 0.2397,
+    "EstimatedSalary": 0.2161,
+    "CreditScore": 0.2145,
+    "Tenure": 0.1116,
+    "HasCrCard": 0.0351
+  },
+  "segments": [
+    {
+      "segment": "Older customers (45+)",
+      "top_driver": "Age",
+      "suggested_action": "Relationship-manager call; retirement and wealth-planning products",
+      "customers": 262,
+      "share": 0.6268,
+      "avg_score": 0.813
+    },
+    {
+      "segment": "Product-holding risk (mostly single-product)",
+      "top_driver": "NumOfProducts",
+      "suggested_action": "Bundle offer for a second product; review fit for 3+ product holders",
+      "customers": 104,
+      "share": 0.2488,
+      "avg_score": 0.857
+    },
+    {
+      "segment": "Regional risk (mostly Germany)",
+      "top_driver": "Geography",
+      "suggested_action": "Check local competitor rates; region-specific pricing",
+      "customers": 33,
+      "share": 0.0789,
+      "avg_score": 0.721
+    },
+    {
+      "segment": "High-balance customers",
+      "top_driver": "Balance",
+      "suggested_action": "Priority service and savings-rate review",
+      "customers": 7,
+      "share": 0.0167,
+      "avg_score": 0.667
+    },
+    {
+      "segment": "Driven by CreditScore",
+      "top_driver": "CreditScore",
+      "suggested_action": "Review the account and make a personalised retention offer",
+      "customers": 5,
+      "share": 0.012,
+      "avg_score": 0.802
+    },
+    {
+      "segment": "Inactive members",
+      "top_driver": "IsActiveMember",
+      "suggested_action": "Re-engagement campaign - app nudges and fee waiver for activity",
+      "customers": 4,
+      "share": 0.0096,
+      "avg_score": 0.699
+    },
+    {
+      "segment": "Driven by EstimatedSalary",
+      "top_driver": "EstimatedSalary",
+      "suggested_action": "Review the account and make a personalised retention offer",
+      "customers": 2,
+      "share": 0.0048,
+      "avg_score": 0.816
+    },
+    {
+      "segment": "Driven by Gender",
+      "top_driver": "Gender",
+      "suggested_action": "Review the account and make a personalised retention offer",
+      "customers": 1,
+      "share": 0.0024,
+      "avg_score": 0.738
+    }
+  ],
+  "figure": "reports/figures/bank_shap_global.png"
+}

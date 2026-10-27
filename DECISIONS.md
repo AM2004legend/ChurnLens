@@ -105,3 +105,15 @@ Each entry: date — decision — why — alternatives considered.
 
 ## 2026-10-27 — Retail: "target everyone" is profitable
 - With 49% churn on test and an offer costing ₹300 vs ₹1,200 expected recovery per saved churner, mass targeting pays (₹1.257M). The model still adds value: ₹1.372M while sending 551 fewer offers. Worth stating honestly — when churn is very common and offers are cheap, the model's job is pruning, not finding.
+
+## 2026-10-27 — SHAP setup
+- TreeExplainer for LightGBM, LinearExplainer (1,000-row training background) for LogReg; both in log-odds.
+- SHAP is computed on the transformed features, then **summed back to the business column** (one-hot pieces + missing indicators). Valid because SHAP values are additive.
+- Explained set = test customers (the ones a team would act on).
+- **Reasons use only positive contributions** (what raises risk), compared with the training median ("typical customer"). Explanations describe the model, not causes.
+
+## 2026-10-27 — Segments = top risk driver, named by YAML rules
+- Customers at/above the chosen threshold are grouped by their single largest positive SHAP column. Names/actions live in each YAML so the business owns the wording; unmapped drivers get "Driven by X" + a generic action. Rule names were set after checking driver direction on real data (e.g. bank Age-driven customers are 49–61 vs typical 37).
+- Suggested actions are **illustrative business rules, not tested interventions**.
+- Driver = NaN (no positive contribution) → "No clear driver" (bug caught by a unit test: pandas turns None into NaN).
+- Targets CSV holds only customer_id, segment, action (no attributes) and is gitignored, as is the per-customer reasons file.

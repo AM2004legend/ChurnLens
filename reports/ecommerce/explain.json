@@ -1,0 +1,91 @@
+{
+  "explained_on": "test customers",
+  "model": "lightgbm",
+  "global_importance_mean_abs_shap": {
+    "Tenure": 1.5818,
+    "Complain": 0.8336,
+    "NumberOfAddress": 0.6452,
+    "PreferedOrderCat": 0.4521,
+    "CashbackAmount": 0.414,
+    "WarehouseToHome": 0.4068,
+    "MaritalStatus": 0.4059,
+    "SatisfactionScore": 0.4036,
+    "DaySinceLastOrder": 0.393,
+    "CityTier": 0.3259,
+    "NumberOfDeviceRegistered": 0.26,
+    "PreferredPaymentMode": 0.2082,
+    "OrderAmountHikeFromlastYear": 0.2066,
+    "OrderCount": 0.1387,
+    "Gender": 0.1178,
+    "CouponUsed": 0.1175,
+    "PreferredLoginDevice": 0.1063,
+    "HourSpendOnApp": 0.0575
+  },
+  "segments": [
+    {
+      "segment": "New customers (low tenure)",
+      "top_driver": "Tenure",
+      "suggested_action": "Onboarding journey - welcome coupon and first-month check-in",
+      "customers": 164,
+      "share": 0.6613,
+      "avg_score": 0.806
+    },
+    {
+      "segment": "Recent complainers",
+      "top_driver": "Complain",
+      "suggested_action": "Priority complaint resolution plus service-recovery voucher",
+      "customers": 50,
+      "share": 0.2016,
+      "avg_score": 0.632
+    },
+    {
+      "segment": "Low cashback earners",
+      "top_driver": "CashbackAmount",
+      "suggested_action": "Targeted cashback boost on next order",
+      "customers": 10,
+      "share": 0.0403,
+      "avg_score": 0.811
+    },
+    {
+      "segment": "Many delivery addresses",
+      "top_driver": "NumberOfAddress",
+      "suggested_action": "Review delivery experience and address-saving UX",
+      "customers": 9,
+      "share": 0.0363,
+      "avg_score": 0.495
+    },
+    {
+      "segment": "Lapsing shoppers",
+      "top_driver": "DaySinceLastOrder",
+      "suggested_action": "Win-back reminder with time-limited coupon",
+      "customers": 7,
+      "share": 0.0282,
+      "avg_score": 0.348
+    },
+    {
+      "segment": "Category-linked risk",
+      "top_driver": "PreferedOrderCat",
+      "suggested_action": "Category-specific offers and recommendations",
+      "customers": 5,
+      "share": 0.0202,
+      "avg_score": 0.572
+    },
+    {
+      "segment": "Far from warehouse",
+      "top_driver": "WarehouseToHome",
+      "suggested_action": "Free or faster delivery offer",
+      "customers": 2,
+      "share": 0.0081,
+      "avg_score": 0.49
+    },
+    {
+      "segment": "Driven by OrderCount",
+      "top_driver": "OrderCount",
+      "suggested_action": "Review the account and make a personalised retention offer",
+      "customers": 1,
+      "share": 0.004,
+      "avg_score": 0.98
+    }
+  ],
+  "figure": "reports/figures/ecommerce_shap_global.png"
+}

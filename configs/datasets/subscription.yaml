@@ -11,3 +11,10 @@ costs:              # ASSUMED values (₹)
   offer_cost: 150
   customer_value: 2000
   offer_success_rate: 0.3
+segments:           # illustrative business rules
+  AccountAge: {name: New subscribers, action: First-90-days onboarding with personalised recommendations}
+  AverageViewingDuration: {name: Low engagement, action: Personalised content push and watch-list reminders}
+  ViewingHoursPerWeek: {name: Low engagement, action: Personalised content push and watch-list reminders}
+  ContentDownloadsPerMonth: {name: Few downloads, action: Promote offline downloads feature}
+  MonthlyCharges: {name: Price-sensitive (high monthly charge), action: Offer a cheaper plan or annual discount}
+  SupportTicketsPerMonth: {name: Frequent support contacts, action: Proactive support outreach}
