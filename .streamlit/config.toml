@@ -1,0 +1,8 @@
+[theme]
+primaryColor = "#E45756"
+
+[server]
+maxUploadSize = 50   # MB; uploads are processed in memory and never stored
+
+[browser]
+gatherUsageStats = false

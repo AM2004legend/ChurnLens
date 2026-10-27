@@ -1,5 +1,7 @@
 # ChurnLens
 
+[![CI](https://github.com/AM2004legend/ChurnLens/actions/workflows/ci.yml/badge.svg)](https://github.com/AM2004legend/ChurnLens/actions/workflows/ci.yml)
+
 **One churn-analytics pipeline for any customer business.** Give it a labelled customer table or a
 raw transaction log and it cleans the data, guards against leakage, explains who churns, compares
 models, chooses a decision threshold from the business's own costs, explains each prediction with
