@@ -117,3 +117,7 @@ Each entry: date — decision — why — alternatives considered.
 - Suggested actions are **illustrative business rules, not tested interventions**.
 - Driver = NaN (no positive contribution) → "No clear driver" (bug caught by a unit test: pandas turns None into NaN).
 - Targets CSV holds only customer_id, segment, action (no attributes) and is gitignored, as is the per-customer reasons file.
+
+## 2026-10-27 — Results table generated from saved payloads only
+- `reports/results.md` is written by code from the same dicts saved as `reports/<name>/metrics.json` — no hand-typed numbers (CLAUDE.md rule).
+- Window sensitivity re-runs modelling + threshold in memory for N = 60/90/120 (no extra files). Finding: AUCs stay 0.72–0.77 but churn rate, chosen threshold and savings move a lot (₹1.70M → ₹1.27M) — the label definition is a business decision, not a detail.

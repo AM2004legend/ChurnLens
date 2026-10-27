@@ -10,8 +10,8 @@
 | 5. Modelling | ✅ done | `models.py` + `run.py` (`python -m churnlens.run --dataset X / --all`). LogReg vs LightGBM, 5-fold stratified (grouped where configured) CV on train, best by CV PR-AUC, test metrics @0.5 in `reports/<name>/metrics.json`. Best test ROC-AUC / PR-AUC: bank LightGBM 0.856/0.700, ecommerce LightGBM 0.943/0.830, retail LogReg 0.752/0.700, subscription LogReg 0.755/0.409 |
 | 6. Cost-based threshold | ✅ done | `threshold.py`; threshold chosen on train OOF scores, savings reported on test vs everyone / no one / 0.5 (`reports/<name>/threshold.json`, figure). Test savings (ASSUMED costs): bank ₹173.5k @0.60, ecommerce ₹97.1k @0.19, retail ₹1.372M @0.18, subscription ₹980k @0.59 — all beat 0.5 and both naive strategies |
 | 7. Explain + segments | ✅ done | `explain.py` (SHAP Tree/Linear, one-hot pieces summed back to business columns, top-3 risk-raising reasons in plain words) + `segments.py` (top driver → YAML rules → segment + action). Aggregates in `reports/<name>/explain.json`; per-customer reasons and target IDs written to gitignored CSVs. Top drivers: bank Age/NumOfProducts, ecommerce Tenure/Complain, retail recency/frequency, subscription AccountAge/viewing duration |
-| 8. Cross-industry run | ⏳ next | |
-| 9. Streamlit app | | |
+| 8. Cross-industry run | ✅ done | `python -m churnlens.run --all` runs all 4 (~2 min) and writes `reports/results.md` (results table, model comparison, confusion matrices, SHAP drivers, retail 60/90/120-day sensitivity). Smoke tests run the full pipeline on 200-row synthetic labelled + transactions data |
+| 9. Streamlit app | ⏳ next | |
 | 10. Ship | | |
 
 ## Known issues
